@@ -1,0 +1,25 @@
+/*==================================
+===== CATEGORY BUTTONS STYLES ======
+==================================*/
+
+.category__buttons {
+  padding-block: 4rem;
+  border-top: 2px solid $clr-gray-900;
+  border-bottom: 2px solid $clr-gray-900;
+
+  .category__buttons-container {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include break_point(500px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: .7rem;
+    }
+  }
+}

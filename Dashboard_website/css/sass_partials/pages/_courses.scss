@@ -1,0 +1,75 @@
+.wrapper {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  .course {
+    position: relative;
+    padding: 0;
+
+    .course_img {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background-color: #ccc;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    .course_instructor {
+      position: absolute;
+      @include circle(70px);
+      padding: 2px;
+      background: $white;
+      left: $box_padding;
+      top: $box_padding;
+    }
+
+    >div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100% - 220px);
+
+      .course_details {
+        flex-grow: 1;
+        padding-inline: $box_padding;
+
+        .course_name {
+          font-weight: 600;
+          margin-bottom: 0;
+        }
+
+        .course_desc {
+          flex-grow: 1;
+          color: $gray;
+          font-size: .9rem;
+          line-height: 1.7;
+          margin-bottom: 2rem;
+        }
+      }
+
+      .course_info {
+        flex-grow: 0;
+        padding: $box_padding;
+        padding-top: $box_padding*1;
+        @include between_flex;
+        position: relative;
+        border-top: $transparent_border;
+
+        .heading {
+          @include button;
+          position: absolute;
+          @include centerX_p;
+          top: 0;
+          @include transform(translateY(-50%))
+        }
+
+        span:not(.heading) {
+          color: $gray;
+        }
+      }
+    }
+
+  }
+}

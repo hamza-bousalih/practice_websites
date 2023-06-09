@@ -1,0 +1,62 @@
+/*==================================
+========== FOOTER STYLES ===========
+==================================*/
+
+footer {
+  background: $clr-gray-900;
+  padding-top: 4rem;
+  box-shadow: inset 0 1.5rem 1.5rem rgba(#000, .3);
+  text-transform: capitalize;
+
+  @include mobile {
+    text-align: center;
+  }
+
+  .footer__socials {
+    margin-inline: auto;
+    width: fit-content;
+    margin-bottom: 5rem;
+    @include between_flex(1.2rem);
+
+    @include mobile {
+      margin-bottom: 2rem;
+    }
+
+    a {
+      @include circle(2.3rem);
+      @include center_flex;
+      @include bgColor_to_textColor($clr-bg, $clr-white)
+    }
+
+  }
+
+  .footer__container {
+    @include grid_layout(200px);
+
+    h4 {
+      color: $clr-white;
+      margin-bottom: .6rem;
+      margin-top: 2rem;
+    }
+
+    li {
+      padding-block: .4rem;
+
+      a {
+        opacity: .7;
+
+        &:hover {
+          letter-spacing: .2rem;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .footer__copyright {
+    text-align: center;
+    padding-block: 1.4rem;
+    border-top: 2px solid $clr-bg;
+    margin-top: 4rem;
+  }
+}

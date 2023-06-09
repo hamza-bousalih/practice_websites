@@ -1,0 +1,145 @@
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  @include breakpoint(max, 940px) {
+    flex-direction: column;
+
+    .files_stats {
+      width: 100%;
+    }
+  }
+
+  .files_stats {
+    min-width: 300px;
+    align-self: flex-start;
+    margin-bottom: 0;
+
+    .widget_title {
+      margin-bottom: 1.5rem
+    }
+
+    .row {
+      @include centerX_flex;
+      gap: .5rem;
+      border: $border;
+      @include border_radius(.3rem);
+      padding: .5rem;
+      @include transition(.3s);
+
+      &:not(:last-child) {
+        margin-bottom: .8rem;
+      }
+
+      @each $file,
+      $color in $files_map {
+        &.#{$file} {
+          --file-color: #{$color};
+          --file-color-a3: #{rgba($color,.3)};
+          --file-color-a1: #{rgba($color,.1)};
+        }
+      }
+
+      &:hover {
+        background: var(--file-color-a1);
+
+        .size {
+          background: var(--file-color-a3);
+        }
+      }
+
+      .icon {
+        width: 50px;
+        height: 50px;
+        background: var(--file-color-a3);
+        color: var(--file-color);
+        font-size: 1.1rem;
+        @include centre_flex;
+      }
+
+      .info {
+        span {
+          display: block;
+
+          &.count {
+            color: $gray;
+            font-size: .9rem;
+            margin-top: 5px;
+          }
+        }
+      }
+
+      .size {
+        margin-left: auto;
+        @include gray_btn;
+        font-size: .9rem;
+        @include transition(.3s);
+      }
+    }
+
+    .upload {
+      @include button;
+      padding: .7rem 1rem;
+      position: relative;
+      @include centerX_p;
+      margin-top: 1rem;
+
+      svg {
+        margin-right: .5rem;
+      }
+    }
+  }
+
+  .files_wrapper {
+    flex-grow: 3;
+    width: 100%;
+
+    @include grid(150px, 1rem);
+
+    .file {
+      padding: .5rem;
+      position: relative;
+      text-align: center;
+      margin-bottom: 0;
+
+      svg {
+        color: $gray;
+        position: absolute;
+        left: .7rem;
+        top: .7rem;
+        z-index: 1;
+      }
+
+      .file_icon {
+        padding-block: 1.5rem .5rem;
+
+        img {
+          width: 50px;
+          @include transition(.3s)
+        }
+      }
+
+      .file_name {
+        margin-bottom: 1rem;
+        font-size: .94rem;
+      }
+
+      .file_owner {
+        color: $gray;
+        font-size: .9rem;
+        text-align: $text_left;
+        margin-bottom: 4px;
+      }
+
+      .file_info {
+        @include between_flex;
+        margin-top: 0;
+        padding-top: .5rem;
+        border-top: $border;
+        font-size: .9rem;
+        color: $gray;
+      }
+    }
+  }
+}

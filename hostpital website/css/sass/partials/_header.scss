@@ -1,0 +1,75 @@
+/* START HEADER STYLES */
+
+header {
+  @include gradient_bg;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+
+  .container {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: 46% 46%;
+    gap: 8%;
+    align-items: center;
+    justify-content: space-between;
+
+    .header__content {
+      h1 {
+        font-size: 3rem;
+        line-height: 1.1;
+        word-spacing: 2px;
+        font-weight: 300;
+        text-transform: capitalize;
+      }
+
+      small {
+        margin-block: 1rem 1.5rem;
+        color: $white-color;
+        font-size: 1.1rem;
+        color: $light-color;
+        display: block;
+      }
+    }
+  }
+}
+
+@include medium {
+  header {
+    max-height: 800px;
+
+    .container {
+      gap: 1rem;
+
+      .header__content {
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+@include small {
+  header {
+    overflow: visible;
+    height: fit-content;
+    max-height: none;
+
+    .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+
+      .header__content {
+        margin-block: .8rem 1.5rem;
+
+        h1 {
+          font-size: 2.2rem;
+        }
+      }
+    }
+  }
+}
+
+/* END HEADER STYLES */

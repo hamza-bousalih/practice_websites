@@ -1,0 +1,23 @@
+/*==================================
+======= SEARCH PAGE STYLES =========
+==================================*/
+
+.posts.section_extra-margin {
+  margin-top: 7rem;
+}
+
+.category__title {
+  height: 15rem;
+  margin-top: 4.5rem;
+  background: #1e1e66;
+  display: grid;
+  place-items: center;
+  text-transform: capitalize;
+}
+
+.alert__message.failed {
+  padding: 0.7rem 1.4rem;
+  text-align: center;
+  background: rgba(218, 15, 63, 0.2);
+  color: #da0f3f;
+}

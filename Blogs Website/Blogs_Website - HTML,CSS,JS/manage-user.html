@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+
+    <link rel="stylesheet"
+        href="./libraries/font_awesome/main_files/all.min.css">
+    <link rel="stylesheet"
+        href="./CSS/dashboard.css">
+  </head>
+  <body>
+    <nav>
+      <div class="container nav__container">
+        <a href="index.html"
+            class="nav__logo"> BSH BLOGS </a>
+        <ul class="nav__items">
+          <li><a href="blog.html">blog</a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="services.html">services</a></li>
+          <li><a href="contact.html">contact</a></li>
+          <!-- <li><a href="signin.html">sign In</a></li> -->
+          <li class="nav__profile">
+            <div class="avatar">
+              <img src="./images/avatar1.jpg">
+            </div>
+            <ul>
+              <li><a href="dashboard.html">dashboard</a></li>
+              <li><a href="logout.html">logout</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="nav__btn">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <section class="dashboard">
+      <div class="container dashboard__container">
+        <button class="sidebar__toggle">
+          <i class="fa fa-angle-left"></i>
+        </button>
+        <aside>
+          <ul>
+            <li>
+              <a href="add-post.html">
+                <i class="fa fa-pencil"
+                    aria-hidden="true"></i>
+                <h5>add post</h5>
+              </a>
+            </li>
+            <li>
+              <a href="dashboard.html">
+                <i class="fa fa-paste"
+                    aria-hidden="true"></i>
+                <h5>manage posts</h5>
+              </a>
+            </li>
+            <li>
+              <a href="add-user.html">
+                <i class="fa fa-user-plus"
+                    aria-hidden="true"></i>
+                <h5>add user</h5>
+              </a>
+            </li>
+            <li>
+              <a href="manage-user.html"
+                  class="active">
+                <i class="fa fa-users-gear"
+                    aria-hidden="true"></i>
+                <h5>manage users</h5>
+              </a>
+            </li>
+            <li>
+              <a href="add-category.html">
+                <i class="fa fa-edit"
+                    aria-hidden="true"></i>
+                <h5>add category</h5>
+              </a>
+            </li>
+            <li>
+              <a href="manage-category.html">
+                <i class="fa fa-list"
+                    aria-hidden="true"></i>
+                <h5>manage categories</h5>
+              </a>
+            </li>
+          </ul>
+        </aside>
+        <main>
+          <h2>manage users</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>User Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Admin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hamza</td>
+                <td>Bsh</td>
+                <td><a href="edit-user.html"
+                      class="btn edit">Edit</a></td>
+                <td><a href="delete-user.html"
+                      class="btn danger">Delete</a></td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Hamza</td>
+                <td>Bsh</td>
+                <td><a href="edit-user.html"
+                      class="btn edit">Edit</a></td>
+                <td><a href="delete-user.html"
+                      class="btn danger">Delete</a></td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Hamza</td>
+                <td>Bsh</td>
+                <td><a href="edit-user.html"
+                      class="btn edit">Edit</a></td>
+                <td><a href="delete-user.html"
+                      class="btn danger">Delete</a></td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Hamza</td>
+                <td>Bsh</td>
+                <td><a href="edit-user.html"
+                      class="btn edit">Edit</a></td>
+                <td><a href="delete-user.html"
+                      class="btn danger">Delete</a></td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__socials">
+        <a href="#"
+            target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#"
+            target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#"
+            target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#"
+            target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="#"
+            target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div class="container footer__container">
+        <article>
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#">art</a></li>
+            <li><a href="#">wide life</a></li>
+            <li><a href="#">travel</a></li>
+            <li><a href="#">music</a></li>
+            <li><a href="#">science & technology</a></li>
+            <li><a href="#">food</a></li>
+          </ul>
+        </article>
+        <article>
+          <h4>support</h4>
+          <ul>
+            <li><a href="#">Online Support</a></li>
+            <li><a href="#">call numbers</a></li>
+            <li><a href="#">emails</a></li>
+            <li><a href="#">social support</a></li>
+            <li><a href="#">location</a></li>
+          </ul>
+        </article>
+        <article>
+          <h4>blog</h4>
+          <ul>
+            <li><a href="#">safety</a></li>
+            <li><a href="#">repair</a></li>
+            <li><a href="#">recent</a></li>
+            <li><a href="#">popular</a></li>
+            <li><a href="#">Categories</a></li>
+          </ul>
+        </article>
+        <article>
+          <h4>permalinks</h4>
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">services</a></li>
+            <li><a href="#">contact</a></li>
+          </ul>
+        </article>
+      </div>
+      <div class="footer__copyright">
+        <small>copyright &copy; HAMZA BOUSALIH</small>
+      </div>
+    </footer>
+
+    <script src="./libraries/font_awesome/main_files/all.min.js"></script>
+    <script src="./libraries/jQuery/jquery-3.6.3.min.js"></script>
+    <script src="./JS/main.js"></script>
+  </body>
+</html>

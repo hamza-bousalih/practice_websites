@@ -1,0 +1,77 @@
+.package {
+  background: $light_bg;
+
+  .box-container {
+    margin-top: 4rem;
+    @include grid(32rem);
+
+    .box {
+      text-align: center;
+      background: $white;
+      border: $border;
+      box-shadow: $box_shadow;
+      padding: 2rem;
+      @include border-radius(.5rem);
+
+      .image {
+        height: 25rem;
+        overflow: hidden;
+        @include border-radius(.5rem);
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .content {
+        margin-top: 2rem;
+
+        h3 {
+          font-size: 2rem;
+          color: $black;
+        }
+
+        p {
+          margin-block: 1rem;
+          font-size: 1.5rem;
+          color: $black;
+          line-height: 2;
+        }
+
+        .price {
+          font-size: 2.2rem;
+          color: $green;
+          margin-bottom: 1rem;
+        }
+      }
+
+      &:hover {
+        background-color: $black;
+        color: $white;
+
+        .content {
+          margin-top: 2rem;
+
+          h3,
+          p {
+            color: $white;
+          }
+
+          .btn {
+            background: $black;
+            color: $white;
+            border-color: $white;
+
+            &:hover {
+              background: $white;
+              color: $black;
+              border-color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

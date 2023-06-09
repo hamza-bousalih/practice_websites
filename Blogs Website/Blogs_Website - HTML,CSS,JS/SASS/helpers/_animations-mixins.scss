@@ -1,0 +1,20 @@
+@import './mixins';
+
+/*==================================
+=========== ANIMATIONS =============
+==================================*/
+
+@mixin animateDropDown {
+  @include keyframes(animateDropDown) {
+    0% {
+      @include transform(rotateX(90deg));
+      transform-origin: top;
+      opacity: 0;
+    }
+
+    100% {
+      @include transform(rotateX(0));
+      opacity: 1;
+    }
+  }
+}

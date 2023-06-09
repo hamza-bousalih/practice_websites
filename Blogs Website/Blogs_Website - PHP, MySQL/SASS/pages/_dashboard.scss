@@ -1,0 +1,237 @@
+/*=============================
+====== DASHBOARD STYLES =======
+=============================*/
+
+.dashboard {
+  margin-top: 6rem;
+
+  .alert__message {
+    position: fixed;
+    right: 0;
+    top: 7rem;
+    padding: .7rem 1.4rem;
+    @include border_radius(.5rem 0 0 .5rem);
+    width: fit-content;
+
+    &.success {
+      background: rgba($clr-green, .2);
+      color: $clr-green;
+
+      &::after {
+        background-color: $clr-green;
+      }
+    }
+
+    &.failed {
+      background: rgba($clr-red, .2);
+      color: $clr-red;
+
+      &::after {
+        background-color: $clr-red;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+    }
+  }
+
+  main .alert__message {
+    position: static;
+    width: 100%;
+    text-align: center;
+    @include border_radius(0);
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .sidebar__toggle {
+    display: none;
+  }
+
+  .dashboard__container {
+    @include notMobile {
+      display: grid;
+      grid-template-columns: 14rem auto;
+      gap: 1rem;
+    }
+
+    background: $clr-gray-900;
+    padding: 2rem;
+    text-transform: capitalize;
+    margin-bottom: 3rem;
+  }
+
+  aside {
+    a {
+      background-color: $clr-primary;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.6rem;
+
+      &.active {
+        background-color: $clr-gray-900;
+      }
+
+      &:hover {
+        background-color: $clr-gray-700;
+      }
+
+      h5 {
+        font-weight: 400;
+      }
+    }
+
+    li:not(:last-child) a {
+      border-bottom: 1px solid $clr-gray-900;
+    }
+  }
+
+  main {
+    margin-left: 1.5rem;
+
+    h2 {
+      font-weight: 500;
+      margin: 0 0 2rem;
+      line-height: 1;
+    }
+
+    table {
+      width: 100%;
+      text-align: left;
+
+      th {
+        background-color: $clr-gray-700;
+        color: $clr-white;
+        padding: .8rem;
+        font-weight: 500;
+      }
+
+      tr {
+        td {
+          padding: .8rem;
+          border-bottom: 1px solid $clr-gray-700;
+          font-size: .9rem;
+        }
+
+        @include notTablet {
+          &:hover td {
+            background-color: $clr-bg;
+            color: $clr-white;
+            cursor: default;
+            @include transition($transition);
+          }
+        }
+      }
+
+    }
+
+
+  }
+
+  .btn {
+    @include btn;
+    padding: .3rem .7rem;
+    font-size: .8rem;
+    font-weight: 500;
+  }
+}
+
+@include tablet {
+  .dashboard {
+    .dashboard__container {
+      grid-template-columns: 5rem auto;
+      padding: 0;
+      background: transparent;
+    }
+
+    aside {
+      a {
+        justify-content: center;
+      }
+
+      @include notMobile {
+        h5 {
+          display: none;
+        }
+      }
+    }
+
+    table {
+      thead {
+        display: none;
+      }
+
+      tr {
+        display: flex;
+        flex-direction: column;
+
+        &:nth-child(even) {
+          background: $clr-gray-900;
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .dashboard {
+
+    .sidebar__toggle {
+      display: block;
+      position: fixed;
+      width: 2.5rem;
+      aspect-ratio: 1/1;
+      @include border_radius(50% 0 0 50%);
+      background-color: $clr-primary-variant;
+      color: $clr-white;
+      z-index: 10;
+      right: 0;
+      bottom: 5rem;
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: -1rem 0 2rem rgba(#000, .4);
+
+      &.active {
+        svg {
+          rotate: 180deg;
+        }
+      }
+    }
+
+    aside {
+      position: fixed;
+      z-index: 10;
+      box-shadow: 2rem 0 4rem rgba(#000, .4);
+      left: -100%;
+      top: 5rem;
+      height: 100vh;
+      @include transition($transition);
+      background-color: $clr-primary;
+
+      &.active {
+        left: 0
+      }
+
+      a {
+        justify-content: flex-start;
+      }
+    }
+
+    main {
+      margin-left: 0;
+
+      h2 {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

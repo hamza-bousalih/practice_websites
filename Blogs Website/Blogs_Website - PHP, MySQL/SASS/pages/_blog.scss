@@ -1,0 +1,45 @@
+/*=============================
+===== SEARCH BAR STYLES =======
+=============================*/
+
+.search__bar {
+  margin-top: 7rem;
+
+
+  .search__bar-container {
+    position: relative;
+    width: min(90%, 30rem);
+    background: $clr-gray-900;
+    @include between_flex;
+    padding: .6rem 1rem;
+    @include border_radius($border-radius-2);
+    color: $clr-gray-300;
+
+    @include tablet {
+      @include center_flex
+    }
+
+    >div {
+      width: 100%;
+      @include centerY_flex;
+    }
+
+    input {
+      background: transparent;
+      margin-left: .7rem;
+      padding-block: .5rem;
+      width: 100%;
+
+      &::placeholder {
+        color: $clr-gray-300;
+        text-transform: capitalize;
+      }
+    }
+
+    .btn {
+      @include btn
+    }
+
+
+  }
+}

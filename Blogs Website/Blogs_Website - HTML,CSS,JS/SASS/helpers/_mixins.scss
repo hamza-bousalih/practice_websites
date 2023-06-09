@@ -1,0 +1,297 @@
+@use './config' as *;
+
+@mixin break_point($width, $minmax: max) {
+  @if $minmax ==max {
+    @media (width<$width) {
+      @content;
+    }
+  }
+
+  @else if $minmax ==min {
+    @media (width>$width) {
+      @content;
+    }
+  }
+
+  @else {
+    @error 'unknown breakpoint';
+  }
+}
+
+@mixin break_area($min, $max) {
+  @media (width >=$min) and (width <=$max) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (width<=768px) {
+    @content;
+  }
+}
+
+@mixin notMobile {
+  @media screen and (width>768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (width<1024px) {
+    @content;
+  }
+}
+
+@mixin notTablet {
+  @media screen and (width>=1024px) {
+    @content;
+  }
+}
+
+// prefixes mixins
+@mixin prefixer($pr, $val, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$pr}: $val;
+  }
+
+  #{$pr}: $val;
+}
+
+@mixin transform($val) {
+  @include prefixer(transform, $val, webkit moz ms o)
+}
+
+@mixin object_fit($val) {
+  @include prefixer(object-fit, $val, o)
+}
+
+@mixin transition($val) {
+  @include prefixer(transition, $val, webkit moz ms o)
+}
+
+@mixin multi_transition($val...) {
+  $prefixes: (webkit moz ms o);
+
+  @each $prefix in $prefixes {
+    -#{$prefix}-transition: $val;
+  }
+
+  transition: $val;
+}
+
+@mixin border_radius($val) {
+  @include prefixer(border-radius, $val, webkit moz ms o)
+}
+
+@mixin circle($width, $height: $width) {
+  width: $width;
+  height: $height;
+  @include border_radius(50%)
+}
+
+@mixin animation($val) {
+  @include prefixer(animation, $val, webkit moz)
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// centering mixins
+@mixin center_flex($gap: 0) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: if($gap !=0, $gap, null);
+}
+
+@mixin between_flex($gap: 0) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: if($gap !=0, $gap, null);
+}
+
+@mixin evenly_flex($gap: 0) {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: if($gap !=0, $gap, null);
+}
+
+@mixin centerX_flex($gap: 0) {
+  display: flex;
+  justify-content: center;
+  gap: if($gap !=0, $gap, null);
+}
+
+@mixin centerY_flex($gap: 0) {
+  display: flex;
+  align-items: center;
+  gap: if($gap !=0, $gap, null);
+}
+
+@mixin centerX_p($pos: 0) {
+  position: if($pos !=0, $pos, null);
+  left: 50%;
+  translate: -50% 0;
+}
+
+@mixin centerY_p($pos: 0) {
+  position: if($pos !=0, $pos, null);
+  top: 50%;
+  translate: 0 -50%;
+}
+
+@mixin center_p($pos: 0) {
+  position: if($pos !=0, $pos, null);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+// grids
+@mixin grid_layout($columns, $gap: 0, $responsive: true) {
+  display: grid;
+
+  @if ($responsive ==false) {
+    grid-template-columns: $columns;
+  }
+
+  @else {
+    grid-template-columns: repeat(auto-fit, minmax($columns, 1fr));
+  }
+
+  gap: if($gap !=0, $gap, null);
+}
+
+// buttons
+@mixin nav-btn($color: #fff, $breakPoint: 768px) {
+  display: none;
+
+  @media screen and (width <=$breakPoint) {
+    width: 35px;
+    height: 25px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    @include center_flex;
+    @include transform(rotate(45deg));
+    @include transition(.3s);
+
+    span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      @include border_radius(10px);
+      background-color: $color;
+      position: absolute;
+      @include transition(.3s linear);
+
+      &:first-child {
+        top: 0;
+        @include transition(.3s);
+        width: 50%;
+      }
+
+      &:last-child {
+        bottom: 0;
+        @include transition(.3s);
+        width: 50%;
+      }
+
+      &:nth-child(2) {
+        @include centerY_p
+      }
+
+      &:nth-child(3) {
+        @include centerY_p
+      }
+    }
+
+    &.active {
+      @include transform(rotate(180deg));
+
+      span {
+
+        &:first-child,
+        &:last-child {
+          opacity: 0;
+        }
+
+        &:nth-child(2) {
+          rotate: 45deg;
+        }
+
+        &:nth-child(3) {
+          rotate: -45deg;
+        }
+
+      }
+    }
+  }
+}
+
+@mixin btn {
+  display: inline-block;
+  width: fit-content;
+  text-transform: capitalize;
+  font-weight: 400;
+  padding: .5rem 1.2rem;
+  background-color: $clr-primary;
+  color: $clr-white;
+  @include border_radius($border-radius-2);
+  cursor: pointer;
+  @include transition($transition);
+
+  &.danger {
+    background-color: $clr-red;
+
+    &:hover {
+      color: $clr-red;
+    }
+  }
+
+  &:hover {
+    color: $clr-primary;
+    background-color: $clr-white;
+  }
+}
+
+// hover effects
+@mixin bgColor_to_textColor($bgColor, $textColor, $transition: 300ms) {
+  background-color: $bgColor;
+  color: $textColor;
+  @include transition($transition);
+
+  &:hover {
+    background-color: $textColor;
+    color: $bgColor;
+    @include multi_transition(background-color $transition, color $transition ($transition - 200ms));
+  }
+}
+
+// Author Component
+@mixin author {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  text-transform: capitalize;
+
+  .avatar {
+    width: 2.5rem;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    @include border_radius($border-radius-3);
+  }
+}

@@ -1,0 +1,33 @@
+/*==================================
+========= FEATURED STYLES ==========
+==================================*/
+
+.featured {
+  margin-top: 8rem;
+
+  @include mobile {
+    margin-top: 6rem
+  }
+}
+
+.featured__container {
+  @include notMobile {
+    @include grid_layout(1fr 1fr, 4rem, false);
+
+    @include tablet {
+      gap: 3rem;
+    }
+  }
+
+  .post__image {
+    height: fit-content;
+
+    @include mobile {
+      margin-bottom: 1rem
+    }
+  }
+}
+
+.posts.section_extra-margin {
+  margin-top: 7rem;
+}

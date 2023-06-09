@@ -1,0 +1,64 @@
+/* START TESTIMONIALS SECTION STYLES */
+
+#testimonials {
+  .container {
+    display: flex;
+    gap: 1.5rem;
+    overflow: hidden;
+    overflow-x: scroll;
+    position: relative;
+    @include br_radius(.7rem);
+    @include remove_scrollbar;
+
+    article {
+      min-width: 400px;
+      @include gradient_bg;
+      padding: 1.2rem 1rem;
+      @include br_radius(inherit);
+      font-size: 0.9rem;
+
+      @include small {
+        padding: 1.5rem;
+        min-width: 90vw;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      .patient {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .avatar {
+          width: 2.5rem;
+          aspect-ratio: 1/1;
+          @include circle;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  .progress {
+    width: 150px;
+    height: 5px;
+    background-color: rgba(#000, .1);
+    @include br_radius(20px);
+    position: relative;
+    left: 50%;
+    translate: -50%;
+    margin-top: 1rem;
+    overflow: hidden;
+
+    span {
+      background-color: $primary-color;
+      display: block;
+      height: 100%;
+      @include br_radius(inherit);
+    }
+  }
+}
+
+/* END TESTIMONIALS SECTION STYLES */

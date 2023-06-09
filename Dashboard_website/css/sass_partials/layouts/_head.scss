@@ -1,0 +1,65 @@
+/* start the head */
+.content {
+  flex-grow: 1;
+  overflow: hidden;
+
+  .head {
+    background: $white;
+    padding: 1rem 1.5rem;
+    @include between_flex;
+
+    .search {
+      position: relative;
+
+      &::before {
+        @include icon(\f002);
+        position: absolute;
+        left: 1rem;
+        @include centerY_p;
+        font-size: 1rem;
+        color: $gray;
+      }
+
+      .search_input {
+        padding: 0.625rem;
+        border: $border;
+        @include border_radius(.7rem);
+        padding-left: 2.5rem;
+        width: 180px;
+        transition: width .3s;
+
+        &:focus {
+          width: 220px;
+
+          &::placeholder {
+            opacity: 0
+          }
+        }
+      }
+    }
+
+    .icons {
+      @include centre_flex(row, 1rem);
+
+      .notification {
+        position: relative;
+
+        &::before {
+          position: absolute;
+          content: '';
+          background: $red;
+          @include circle(10px);
+          right: -1px;
+          top: -3px;
+        }
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+/* end the head */

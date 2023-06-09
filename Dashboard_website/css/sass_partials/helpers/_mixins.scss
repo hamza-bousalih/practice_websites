@@ -1,0 +1,385 @@
+// prefixes mixins
+@mixin prefixer($pr, $val, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$pr}: $val;
+  }
+
+  #{$pr}: $val;
+}
+
+@mixin transition($val) {
+  @include prefixer(transition, $val, webkit moz ms o)
+}
+
+@mixin transform($val) {
+  @include prefixer(transform, $val, webkit moz ms o)
+}
+
+@mixin border_radius($val) {
+  @include prefixer(border-radius, $val, webkit moz ms o)
+}
+
+@mixin animation($val) {
+  @include prefixer(animation, $val, webkit moz)
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin circle($width, $height: $width) {
+  width: $width;
+  height: $height;
+  @include border_radius(50%)
+}
+
+// media queries
+@mixin mobile {
+  @media (width <=768px) {
+    @content;
+  }
+}
+
+@mixin not_mobile {
+  @media (width > 768px) {
+    @content;
+  }
+}
+
+@mixin breakpoint($minmax, $val) {
+  @if ($minmax ==min) {
+    @media (width > $val) {
+      @content;
+    }
+  }
+
+  @else if ($minmax ==max) {
+    @media (width < $val) {
+      @content;
+    }
+  }
+}
+
+%hide_mobile {
+  @include mobile {
+    display: none;
+  }
+}
+
+// grid mixins
+@mixin grid($val, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: $gap;
+}
+
+@mixin between_flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin centre_flex ($direction: row, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+  gap: if($gap !=0, $gap, null);
+}
+
+@mixin centerX_flex ($gap: 0) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: if($gap !=0, $gap, null);
+}
+
+@mixin centerY_flex ($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: if($gap !=0, $gap, null);
+}
+
+// positions mixins
+@mixin centerY_p {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+@mixin centerX_p {
+  left: 50%;
+  translate: -50% 0;
+}
+
+@mixin center_p {
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+// button mixins:
+@mixin button($colors: true, $bgColor: $blue, $color: $white, $hover_color: $blue) {
+  padding: 5px 10px;
+  text-transform: capitalize;
+  display: block;
+  width: fit-content;
+  @include border_radius(.4rem);
+  font-size: 1rem;
+  border: none;
+  background-color: $bgColor;
+  color: $color;
+
+  &:hover {
+    background: if($colors, lighten($bgColor, 8%), $hover_color);
+  }
+}
+
+@mixin gray_btn {
+  white-space: nowrap;
+  background-color: $gray_bg;
+  color: $black;
+  padding: .4rem .6rem;
+  @include border_radius(.3rem);
+}
+
+// progress bar
+@mixin progress($width, $height, $bgColor, $barColor) {
+  position: relative;
+  width: $width;
+  height: $height;
+  background: $bgColor;
+  @include border_radius($height);
+
+  .prog_bar {
+    display: block;
+    height: 100%;
+    background: $barColor;
+    @include border_radius(inherit);
+  }
+}
+
+// arrow mixins
+@mixin arrow_down($width, $color) {
+  border-color: transparent;
+  border-width: $width;
+  border-top-color: $color;
+  border-style: solid;
+  bottom: -2 * $width;
+  @include centerX_p;
+}
+
+@mixin arrow_top ($width, $color) {
+  border-color: transparent;
+  border-width: $width;
+  border-bottom-color: $color;
+  border-style: solid;
+  top: -2 * $width;
+  @include centerX_p;
+}
+
+// transition effects mixins
+@mixin grey_background($color: $gray) {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    position: absolute;
+    content: '';
+    inset: 0 -1 * $box_padding;
+    background-color: rgba($color, .05);
+    scale: 0 1;
+    @include transition(.3s linear);
+    transform-origin: left;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    scale: 1;
+  }
+}
+
+// font awesome mixin
+@mixin icon($unicode, $wight: 900) {
+  font-family: $font_awesome;
+  content: "#{$unicode}";
+  font-weight: $wight;
+}
+
+// form checkbox mixin
+@mixin toggle_checkbox($width: 78px, $height: 32px, $fs: normal, $center_mobile: false) {
+  .toggle_checkbox {
+    appearance: none;
+    display: none;
+
+    &:checked+.toggle_switch {
+      background: $blue;
+
+      &::before {
+        left: $width - ($height - 8px) - 4px;
+        color: $blue-alt;
+        content: '\f00c';
+      }
+    }
+  }
+
+  .toggle_switch {
+    background: #ccc;
+    width: $width;
+    height: $height;
+    @include border_radius($height);
+    position: relative;
+    @include transition(.3s);
+    cursor: pointer;
+
+    @if ($center_mobile) {
+      @include mobile() {
+        position: relative;
+        left: 50%;
+        translate: -50%;
+      }
+    }
+
+    &::before {
+      @include icon(\f00d);
+      @include circle($height - 8px);
+      @include centre_flex;
+      background: $white;
+      font-size: $fs;
+      color: #aaa;
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      left: 4px;
+      @include transition(.3s);
+    }
+  }
+}
+
+@mixin radio {
+  appearance: none;
+
+  +label {
+    padding-left: 30px;
+    cursor: pointer;
+    position: relative;
+    @include transition(.3s);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: 12px;
+      aspect-ratio: 1/1;
+      left: 0;
+      top: 50%;
+      translate: 0 -50%;
+      @include border_radius(50%)
+    }
+
+    &::before {
+      outline: 2px solid $gray;
+      outline-offset: 3px;
+    }
+
+    &:hover {
+      color: $blue;
+
+      &::before {
+        outline-color: $blue;
+      }
+    }
+
+    &::after {
+      font-size: 12px;
+      background: $blue;
+      color: $white;
+      @include centre_flex;
+      @include transition(.3s);
+      @include transform(scale(0));
+    }
+  }
+
+  &:checked {
+    +label {
+      &::after {
+        @include transform(scale(1));
+      }
+
+      &::before {
+        outline-color: $blue;
+      }
+    }
+  }
+}
+
+@mixin checkbox {
+  appearance: none;
+
+  +label {
+    padding-left: 30px;
+    cursor: pointer;
+    position: relative;
+    @include transition(.3s);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 50%;
+      translate: 0 -50%;
+      @include border_radius(4px)
+    }
+
+    &::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      border: 2px solid $gray;
+    }
+
+    &:hover {
+      color: $blue;
+
+      &::before {
+        border-color: $blue;
+      }
+    }
+
+    &::after {
+      width: 18px;
+      aspect-ratio: 1/1;
+      @include icon(\f00c);
+      font-size: 12px;
+      background: $blue;
+      color: $white;
+      @include centre_flex;
+      @include transition(.3s);
+      @include transform(scale(0) rotate(360deg))
+    }
+  }
+
+  &:checked {
+    +label::after {
+      @include transform(scale(1) rotate(0));
+    }
+  }
+}
+
+// border mixins
+@mixin border_between($color: $gray_bg) {
+  &:not(:last-child) {
+    border-bottom: 1px solid $color;
+  }
+}

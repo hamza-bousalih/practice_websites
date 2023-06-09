@@ -1,0 +1,35 @@
+/*==================================
+=========== SINGLE POST STYLES ============
+==================================*/
+
+.singlePost {
+  margin-block: 7rem 2rem;
+
+  @include break_point(600px) {
+    padding-inline: 1rem;
+  }
+
+  .post__title {
+    font-size: 1.4rem;
+  }
+
+  .singlePost__container {
+    width: 600px;
+    background: $clr-gray-900;
+    padding: 1rem 2rem 2rem;
+
+    @include break_point(600px) {
+      width: 100%;
+      padding: .5rem 1rem 1rem;
+    }
+  }
+
+  .singlePost__image {
+    margin-top: 1.5rem;
+  }
+
+  p {
+    margin-top: 1rem;
+    line-height: 1.7;
+  }
+}

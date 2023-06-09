@@ -1,0 +1,56 @@
+.footer {
+  padding: 5rem $padding_lg_screen;
+  background: linear-gradient(rgba(#000, .5), rgba(#000, .5)), url(../imgs/footer-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  @include medium_screen {
+    padding: 3rem $padding_md_screen;
+  }
+
+  .box-container {
+    @include grid(25rem);
+
+    .box {
+      h3 {
+        font-size: 2rem;
+        padding: 1.5rem 0;
+        color: $white;
+      }
+
+      a {
+        display: block;
+        font-size: 1.4rem;
+        color: $white;
+        padding: 1rem 0;
+
+        i {
+          color: $green;
+          padding-right: 1rem;
+        }
+
+        &:hover {
+          color: $green;
+
+          i {
+            padding-right: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .credit {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-inline: 1rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color: $white;
+
+    span {
+      color: $green;
+    }
+  }
+}

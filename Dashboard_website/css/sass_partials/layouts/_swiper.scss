@@ -1,0 +1,49 @@
+.swiper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  margin-top: 1rem;
+  isolation: isolate;
+
+
+
+  .swiper-container {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .swiper-slide {
+      min-width: 100%;
+    }
+  }
+
+  .swiper-dotes {
+    position: absolute;
+    @include centerX_flex;
+    gap: 10px;
+    margin-top: 1rem;
+    left: 50%;
+    translate: -50%;
+    z-index: 1;
+    bottom: 0;
+
+    span {
+      @include circle(8px);
+      background: $blue;
+      opacity: .3;
+      cursor: pointer;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}

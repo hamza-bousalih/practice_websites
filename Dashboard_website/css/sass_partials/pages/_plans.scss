@@ -1,0 +1,87 @@
+.wrapper {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  .plan {
+    padding: $box_padding;
+    margin-bottom: 1rem;
+    background: $white;
+
+    @each $plan,
+    $color in $plans_map {
+      &.#{$plan} {
+        --plan-color: #{$color};
+        --plan-color-a3: #{rgba($color,.3)};
+        --plan-color-a1: #{rgba($color,.1)};
+        --plan-color-light: #{lighten($color,8%)};
+      }
+    }
+
+    .top {
+      background: var(--plan-color);
+      outline: 2px solid var(--plan-color);
+      outline-offset: 3px;
+      color: $white;
+      text-align: center;
+      padding: 1rem;
+
+      h2 {
+        font-weight: 700;
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .price {
+        font-weight: 500;
+        font-size: 3rem;
+        margin: 0;
+
+        span {
+          font-size: 1.5rem;
+          position: relative;
+          top: -1.2rem;
+          left: -.3rem;
+        }
+      }
+    }
+
+    ul {
+      margin-top: 1.5rem;
+
+      li {
+        @include centerX_flex;
+        gap: .5rem;
+        padding-block: 1rem;
+        border-bottom: $transparent_border;
+
+        svg {
+          color: $red;
+
+          &.yes {
+            color: $green;
+          }
+
+          &.help {
+            color: $gray;
+            margin-left: auto;
+          }
+        }
+      }
+    }
+
+    .join {
+      margin-top: 1rem;
+      @include button($colors: false,
+        $bgColor: var(--plan-color),
+        $color: $white,
+        $hover_color: var(--plan-color-light));
+      font-size: 1rem;
+      padding: .3rem 1.2rem;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 0;
+      color: $gray;
+    }
+  }
+}

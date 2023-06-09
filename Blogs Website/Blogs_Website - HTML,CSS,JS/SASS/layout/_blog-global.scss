@@ -1,0 +1,43 @@
+/*==================================
+======= BLOGS GLOBAL STYLES ========
+==================================*/
+.category__button {
+  background: $clr-primary-light;
+  color: $clr-primary;
+  display: inline-block;
+  padding: .5rem 1rem;
+  @include border_radius($border-radius-2);
+  font-weight: 500;
+  font-size: .8rem;
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: .5rem;
+
+  &:hover {
+    color: $clr-white;
+  }
+}
+
+.post__image {
+  @include border_radius($border-radius-5 0);
+  border: .7rem solid $clr-gray-900;
+  overflow: hidden;
+}
+
+.post__title {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: .5rem;
+}
+
+.post:hover {
+  .post__image img {
+    filter: saturate(0);
+    @include transition(filter 500ms ease)
+  }
+}
+
+.post__author {
+  @include author;
+}

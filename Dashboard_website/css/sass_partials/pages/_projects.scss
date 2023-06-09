@@ -1,0 +1,108 @@
+.project {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(max, 500px) {
+    text-align: center;
+  }
+
+  .date {
+    font-size: .9rem;
+    color: $gray;
+    position: absolute;
+    right: $box_padding;
+    top: $box_padding;
+
+    @include breakpoint(max, 500px) {
+      @include centerX_p
+    }
+  }
+
+  .project_name {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+
+    @include breakpoint(min, 500px) {
+      margin-top: 0;
+    }
+  }
+
+  .project_desc {
+    font-size: 1rem;
+    color: $gray;
+
+    @include breakpoint(max, 500px) {
+      margin-block: 0 1rem;
+    }
+  }
+
+  .team {
+    padding-block: 2rem 3rem;
+    border-bottom: $transparent_border;
+    flex-grow: 1;
+    position: relative;
+
+    >div {
+      position: absolute;
+      bottom: 1rem;
+      width: fit-content;
+
+      @include breakpoint(max, 500px) {
+        @include centerX_p
+      }
+
+      a {
+        margin-top: auto;
+
+        img {
+          @include circle(40px);
+          padding: 2px;
+          background: $white;
+        }
+
+        &:not(:first-child) img {
+          margin-left: -20px;
+        }
+      }
+    }
+  }
+
+  .do {
+    padding-block: 1rem;
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    @include breakpoint(max, 500px) {
+      justify-content: center;
+    }
+
+    span {
+      @include gray_btn;
+      font-size: .8rem;
+    }
+  }
+
+  .info {
+    margin-top: 1rem;
+    @include between_flex;
+    align-items: center;
+    gap: 1rem;
+
+    .prog {
+      @include progress($width: min(100%, 300px), $height: 7px, $bgColor: rgba($green, .1), $barColor: $green);
+    }
+
+    .money {
+      color: $gray;
+      font-size: .9rem;
+    }
+
+    @include breakpoint(max, 500px) {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,205 @@
+.content {
+  .overview {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include mobile {
+      display: block;
+    }
+
+    .avatar_box {
+      flex: 1;
+      text-align: center;
+      padding: 20px 30px;
+      border-right: $transparent_border;
+
+      @include mobile {
+        border-bottom: $transparent_border;
+        border-right: none
+      }
+
+      .avatar_img {
+        @include circle(120px);
+      }
+
+      .avatar_name {
+        font-weight: 600;
+        font-size: 1.3rem;
+        margin-bottom: 0;
+      }
+
+      .level {
+        font-size: 1rem;
+        color: $gray;
+        margin-bottom: 0;
+      }
+
+      .level_prog {
+        margin-block: 1rem;
+        @include progress(120px, 5px, rgba($blue, 0.2), $blue);
+        margin-inline: auto;
+      }
+
+      .rating {
+        color: $orange
+      }
+
+      .rating_count {
+        font-size: .9rem;
+        color: $gray;
+      }
+    }
+
+    .info_box {
+      flex: 1;
+      flex-basis: 570px;
+
+      @include mobile {
+        text-align: center;
+      }
+
+      .box {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        @include transition(.3s);
+        padding-block: 1rem;
+
+        @include border_between;
+
+        &:hover {
+          background: rgba($color: $gray_bg, $alpha: .4);
+        }
+
+        .info_title {
+          color: $gray;
+          font-weight: 400;
+          margin: 0;
+          width: 100%;
+
+          @include mobile {
+            margin-bottom: 1rem;
+          }
+        }
+
+        .info_details {
+          padding-block: 1rem;
+          flex: 1;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+          gap: 1rem;
+
+          div {
+            .info_label {
+              color: $gray;
+            }
+          }
+        }
+
+        .toggle_box {
+          .toggle_checkbox {
+            @include toggle_checkbox($width: 90px, $height: 20px, $fs: 10px, $center_mobile: true);
+          }
+        }
+      }
+    }
+  }
+
+  .wrapper {
+    display: flex;
+
+    .widget_title+p {
+      margin-bottom: 1rem;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+
+      .widget {
+        margin: 0;
+      }
+    }
+
+    .skills {
+      padding-bottom: 0;
+      margin: 0;
+      flex-grow: 1;
+
+      .skills_list {
+        li {
+          display: flex;
+          flex-wrap: wrap;
+          gap: .5rem;
+          padding-block: 1rem;
+          @include grey_background();
+
+          @include mobile {
+            justify-content: center;
+          }
+
+          @include border_between;
+
+          span {
+            @include gray_btn;
+            margin-right: 1rem;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .activities {
+      flex-grow: 2;
+
+      .activity {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-block: 1rem;
+        border-bottom: $transparent_border;
+
+        @include grey_background;
+
+        @include mobile {
+          flex-direction: column;
+
+          &:last-child {
+            border-bottom: none
+          }
+        }
+
+        .activity_img {
+          @include circle(60px);
+        }
+
+        .activity_date {
+          @include not_mobile {
+            margin-left: auto;
+
+            &>:first-child {
+              text-align: $text_right;
+            }
+          }
+        }
+
+        .activity_info,
+        .activity_date {
+          &>:first-child {
+            display: block;
+            margin-bottom: 5px;
+          }
+
+          &>:last-child {
+            color: $gray;
+            font-size: .9rem;
+          }
+        }
+      }
+    }
+  }
+}

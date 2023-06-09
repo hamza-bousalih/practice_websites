@@ -1,0 +1,13 @@
+@use '../helpers' as *;
+
+@import '../layout/global';
+
+@import '../layout/nav';
+
+@import '../pages/dashboard';
+
+@import '../layout/footer';
+
+@import '../helpers/animations-mixins';
+
+@include animateDropDown;

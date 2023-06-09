@@ -1,0 +1,85 @@
+/*=============================
+======= GLOBAL STYLES =========
+=============================*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  appearance: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: $clr-gray-200;
+  overflow-x: hidden;
+  background: $clr-bg;
+  font-size: .9rem;
+}
+
+.container {
+  width: $container-width-lg;
+  max-width: 1800px;
+  margin-inline: auto;
+
+  @include tablet {
+    width: $container-width-md;
+  }
+}
+
+section {
+  margin-top: 3rem;
+  width: 100vw;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $clr-white;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin: 1rem 0;
+
+  @include tablet {
+    font-size: 1.6rem;
+  }
+}
+
+h3 {
+  font-size: 1.1rem;
+  image-rendering: .8rem 0 .5rem;
+
+  @include tablet {
+    font-size: 1rem;
+  }
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+a {
+  color: $clr-white;
+  @include transition($transition);
+}
+
+img {
+  display: block;
+  width: 100%;
+  @include object_fit(cover);
+}

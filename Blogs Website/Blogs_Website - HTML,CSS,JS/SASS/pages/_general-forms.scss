@@ -1,0 +1,88 @@
+/*==============================
+===== GENERAL FORMS STYLES =====
+==============================*/
+
+nav+.form__section {
+  &.notFull {
+    margin: 0
+  }
+}
+
+.form__section {
+  @include center_flex;
+  min-height: 100vh;
+  padding-block: 1rem;
+  margin: 0;
+
+  .form__section-container {
+    max-width: 600px;
+  }
+
+  .alert__message {
+    padding: .8rem 1rem;
+    margin-bottom: 1rem;
+    @include border_radius($border-radius-2);
+    text-transform: capitalize;
+    font-size: 1rem;
+
+    &.error {
+      background: $clr-red-light;
+      color: $clr-red;
+    }
+
+    &.success {
+      background: $clr-green-light;
+      color: $clr-green;
+    }
+  }
+
+  h2 {
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .form__control {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+
+      &.inline {
+        flex-direction: row;
+        align-items: center;
+        gap: .6rem;
+      }
+    }
+
+    input,
+    textarea,
+    select {
+      padding: .8rem 1.4rem;
+      background: $clr-gray-900;
+      @include border_radius($border-radius-2);
+      resize: none;
+      color: $clr-white;
+
+      &::placeholder {
+        text-transform: capitalize;
+      }
+    }
+
+    .btn {
+      @include btn;
+    }
+  }
+
+  small {
+    display: block;
+    margin-top: .5rem;
+
+    a {
+      color: $clr-primary;
+    }
+  }
+}

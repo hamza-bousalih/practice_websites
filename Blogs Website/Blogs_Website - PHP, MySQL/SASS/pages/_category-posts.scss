@@ -1,0 +1,19 @@
+/*==================================
+====== CATEGORY TITLE STYLES =======
+==================================*/
+
+.category__title {
+  height: 15rem;
+  margin-top: 4.5rem;
+  background: $clr-gray-900;
+  display: grid;
+  place-items: center;
+  text-transform: capitalize;
+}
+
+.alert__message.failed {
+  padding: .7rem 1.4rem;
+  text-align: center;
+  background: rgba($clr-red, .2);
+  color: $clr-red;
+}

@@ -1,0 +1,54 @@
+.reviews {
+
+  .wrapper {
+    @include wrapper(3rem);
+
+    .slide {
+      min-width: 40rem;
+      max-width: calc(100vw - 2rem);
+
+      .text {
+        padding: 2rem;
+        font-style: italic;
+        font-size: 1.6rem;
+        line-height: 2;
+        @include border-radius(.5rem);
+        color: $black;
+        background: $light_bg;
+        position: relative;
+        z-index: 0;
+        margin-bottom: 3rem;
+
+        &::before {
+          content: '';
+          position: absolute;
+          border: 2rem solid;
+          border-color: $light_bg transparent transparent transparent;
+          top: 100%;
+          left: .7rem;
+        }
+      }
+
+      .user {
+        width: fit-content;
+        @include centre_flex;
+        gap: 1.5rem;
+
+        img {
+          @include circle(7rem);
+          pointer-events: none;
+        }
+
+        h3 {
+          font-size: 2rem;
+          color: $black;
+        }
+
+        span {
+          font-size: 1.5rem;
+          color: $green
+        }
+      }
+    }
+  }
+}

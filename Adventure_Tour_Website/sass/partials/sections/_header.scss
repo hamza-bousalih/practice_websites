@@ -1,0 +1,164 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem $padding_lg_screen;
+  z-index: $large_index;
+  display: flex;
+  align-items: center;
+
+  &.active {
+    background: $white;
+    box-shadow: $box_shadow;
+  }
+
+  @include medium_screen {
+    padding: $padding_md_screen;
+  }
+
+  .logo {
+    margin-right: auto;
+    font-size: 2.5rem;
+    color: $black;
+    font-weight: 500;
+    font-family: mf_500;
+
+    i {
+      color: $green;
+    }
+  }
+
+  .navbar {
+
+    #nav-close {
+      display: none;
+    }
+
+    @include mobile {
+      position: fixed;
+      top: 0;
+      left: -110%;
+      bottom: 0;
+      background-color: $white;
+      z-index: $large_index+1;
+      width: 35rem;
+      max-width: 100%;
+      @include centre_flex(column);
+
+
+      &.active {
+        box-shadow: 0 0 0 100vw $dark-bg;
+        left: 0;
+      }
+
+      #nav-close {
+        font-size: 5rem;
+        cursor: pointer;
+        color: $black;
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+      }
+    }
+
+    a {
+      margin-left: $links_separated;
+      font-size: 1.7rem;
+      color: $black;
+
+      &:hover {
+        color: $green;
+      }
+
+      @include mobile {
+        margin: 1rem 0;
+        font-size: 3rem;
+      }
+    }
+  }
+
+  .icons {
+    margin-left: $links_separated;
+    display: flex;
+    align-items: center;
+    gap: $links_separated;
+
+    .menu_btn {
+      @include breakpoint(min, 768px) {
+        display: none;
+      }
+    }
+
+    a,
+    div {
+      font-size: 2.5rem;
+      cursor: pointer;
+      color: $black;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+}
+
+.search-form {
+  position: fixed;
+  inset: 0;
+  background-color: $dark-bg;
+  @include centre_flex(column);
+  z-index: $large_index;
+  translate: 0 -110%;
+  // transform-origin: top;
+
+  &.active {
+    translate: 0;
+  }
+
+  #close-search {
+    position: absolute;
+    top: 1rem;
+    right: 2.5rem;
+    cursor: pointer;
+    color: $white;
+    font-size: 4rem;
+
+    &:hover {
+      color: $green
+    }
+  }
+
+  form {
+    width: 70rem;
+    max-width: 90%;
+    padding-bottom: 1rem;
+    border-bottom: .2rem solid rgba($white, .6);
+    border-bottom: .2rem solid $white;
+    @include centre_flex;
+
+    input {
+      width: 100%;
+      font-size: 2rem;
+      color: $white;
+      text-transform: none;
+      background: none;
+      padding-right: 1rem;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    label {
+      font-size: 2.5rem;
+      color: $white;
+      cursor: pointer;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+}

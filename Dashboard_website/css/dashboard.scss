@@ -1,0 +1,11 @@
+@import './sass_partials/helpers/config';
+@import './sass_partials/helpers/functions';
+@import './sass_partials/helpers/mixins';
+@import './sass_partials/helpers/bases';
+
+@import './sass_partials/layouts/global';
+@import './sass_partials/layouts/sidebar';
+@import './sass_partials/layouts/head';
+@import './sass_partials/layouts/swiper';
+
+@import './sass_partials/pages/dashboard';

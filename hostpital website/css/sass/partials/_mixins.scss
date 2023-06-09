@@ -1,0 +1,138 @@
+// font adder
+@mixin add_font($font_name, $weight, $name) {
+  @font-face {
+    font-family: $name + '_' + $weight;
+    src: url(./fonts/#{$font_name}-#{$weight}.ttf); // the font folder have to be in css folder with css file.
+    font-weight: $weight;
+  }
+}
+
+// media queries
+@mixin medium {
+  @media screen and (width<=1024px) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media screen and (width<=600px) {
+    @content;
+  }
+}
+
+@mixin breakpoint($minmax, $val) {
+  @if ($minmax =='min') {
+    @media screen and (width > $val) {
+      @content
+    }
+  }
+
+  @else if ($minmax =='max') {
+    @media screen and (width < $val) {
+      @content
+    }
+  }
+
+  @else {
+    @error "error in minmax var, put 'min' or 'max' as value-------------------------"
+  }
+}
+
+// prefixer
+@mixin prefixer($pr, $val, $prefixes: ()) {
+  #{$pr}: $val;
+
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$pr}: $val;
+  }
+}
+
+@mixin br_radius($val) {
+  @include prefixer(border-radius, $val, webkit moz ms o)
+}
+
+@mixin circle {
+  @include br_radius(50%)
+}
+
+@mixin transition($val...) {
+  @include prefixer(transition, $val, webkit moz ms o);
+}
+
+@mixin transform($val) {
+  @include prefixer(transform, $val, webkit moz ms o)
+}
+
+@mixin animation($val) {
+  @include prefixer(animation, $val, webkit)
+}
+
+// button mixin
+@mixin button($textColor: $white-color, $bgColor: $secondary-color) {
+  display: inline-block;
+  padding: .75rem 1rem;
+  width: fit-content;
+  background: $bgColor;
+  color: $textColor;
+  @include br_radius(.4rem);
+  @include transition(all .4s ease);
+  text-transform: capitalize;
+
+  &:hover {
+    background: lighten($bgColor, 8%);
+    box-shadow: 0 1rem 1.6rem rgba($black-color, .15);
+  }
+}
+
+@mixin gradient_bg {
+  background-image: linear-gradient(135deg, $primary-color, $primary-color-variant);
+  color: $white-color;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: $white-color;
+  }
+}
+
+// centering mixin:
+@mixin centre_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin centre_grid {
+  display: grid;
+  place-content: center;
+}
+
+@mixin centre_pos {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+@mixin centre_x($val: relative) {
+  position: $val;
+  left: 50%;
+  translate: -50% 0;
+}
+
+@mixin centre_y($val: relative) {
+  position: $val;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+// scrollbar mixins
+@mixin remove_scrollbar() {
+  scrollbar-width: none;
+}
+
+// @mixin then_scrollbar() {
+//   scrollbar-width: then;
+// }

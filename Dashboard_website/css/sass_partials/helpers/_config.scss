@@ -1,0 +1,75 @@
+$blue: #0075ff;
+$blue-alt: #0d69d5;
+$orange: #f59e0b;
+$red: #f44336;
+$green: #22c55e;
+$gray: #888;
+$white: white;
+$black: #000;
+
+$light_bg: #f1f5f9;
+$gray_bg: #eee;
+
+$twitter: #55acee;
+$facebook: #3b5999;
+$youtube: #eb4924;
+$linkedin: #0077b5;
+$box_shadow: 0 0 10px #ddd;
+$border: 1px solid #ccc;
+$transparent_border: 1px solid $gray_bg;
+
+$text_left: left;
+$text_right: right;
+$large_index: 100;
+
+$font_awesome: var(--fa-style-family-classic);
+
+$box_padding: 20px;
+
+
+$tickets_map: (
+  'total': $orange,
+  'pending': $blue,
+  'closed': $green,
+  'deleted': $red
+);
+
+$targets_map: (
+  'money': $blue,
+  'projects': $orange,
+  'team': $green
+);
+
+$reminders_map: (
+  'blue': $blue,
+  'orange': $orange,
+  'green': $green,
+  'red': $red,
+);
+
+$social_map: (
+  'twitter': $twitter,
+  'facebook': $facebook,
+  'youtube': $youtube,
+  'linkedin': $linkedin,
+);
+
+$projects_status_map: (
+  'in_progress': $blue,
+  'pending': $orange,
+  'completed': $green,
+  'rejected': $red,
+);
+
+$files_map: (
+  'csv': $orange,
+  'word': $blue,
+  'image': $green,
+  'pdf': $red
+);
+
+$plans_map: (
+  'blue': $blue,
+  'green': $green,
+  'orange': $orange,
+);

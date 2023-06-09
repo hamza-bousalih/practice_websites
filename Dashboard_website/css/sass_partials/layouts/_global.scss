@@ -1,0 +1,94 @@
+.content h1 {
+  margin: 20px 20px 40px;
+  position: relative;
+  font-weight: 600;
+
+  &::before,
+  &::after {
+    content: '';
+    height: 3px;
+    position: absolute;
+    left: 0;
+    background: $black;
+    @include border_radius(3px);
+  }
+
+  &::before {
+    bottom: -10px;
+    width: 120px;
+  }
+
+  &::after {
+    bottom: -20px;
+    width: 60px;
+  }
+}
+
+.wrapper {
+  @include grid(450px, 1.5rem);
+
+  @include mobile {
+    display: block;
+
+    .widget {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.wrapper,
+.single_widget {
+  margin-inline: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  @include mobile {
+    margin-inline: .65rem;
+  }
+}
+
+.widget {
+  background: $white;
+  overflow: hidden;
+  @include border_radius(10px);
+  @include transition(box-shadow .3s ease);
+  padding: $box_padding;
+
+  &:hover {
+    box-shadow: 0 1px 2px 0 rgba($black, .3),
+      0 2px 6px 2px rgba($black, .15);
+  }
+
+  @include mobile {
+    display: block;
+  }
+
+  .widget_title {
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0;
+    margin-bottom: 10px;
+
+    +p {
+      text-transform: capitalize;
+      color: $gray;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+
+// <label for="toggle_checkbox">
+// <input type="checkbox" checked id="toggle_checkbox" class="toggle_checkbox">
+// <div class="toggle_switch"></div>
+// </label>
+label.toggle_checkbox_parent {
+  @include toggle_checkbox
+}
+
+%explain_paragraph {
+  margin-bottom: 0;
+  margin-top: 5px;
+  color: $gray;
+  font-size: .9rem;
+}

@@ -1,0 +1,119 @@
+/* START APPOINTMENT SECTION STYLES */
+
+#appointment {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+
+    .info {
+      flex-basis: 300px;
+      flex-grow: 1;
+
+      h2 {
+        text-transform: capitalize;
+        font-weight: 600;
+
+        @include breakpoint(max, 703px) {
+          text-align: center;
+        }
+      }
+
+      p {
+        margin-block: .5rem 1.5rem;
+
+        @include breakpoint(max, 703px) {
+          text-align: center;
+        }
+      }
+
+      article {
+        margin-bottom: 1rem;
+        @include centre_flex;
+        gap: 1.5rem;
+
+        @include breakpoint(max, 703px) {
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+        }
+
+        @include breakpoint(max, 500px) {
+          gap: .5rem;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .info__icon {
+          background-color: $secondary-color;
+          color: $white-color;
+          width: 100px;
+          aspect-ratio: 1/1;
+          @include centre_flex;
+          @include circle;
+
+          @include breakpoint(max, 500px) {
+            width: 50px;
+          }
+        }
+
+        .info__details {
+          h4 {
+            text-transform: capitalize;
+            font-weight: 600;
+
+            @include breakpoint(max, 500px) {
+              margin-bottom: .5rem;
+            }
+          }
+        }
+      }
+    }
+
+    form {
+      flex-basis: 300px;
+      flex-grow: 1;
+
+      label {
+        display: block;
+        width: fit-content;
+        text-transform: capitalize;
+        font-weight: 600;
+        font-size: .85rem;
+        position: relative;
+
+        &.optional::before {
+          content: '(optional)';
+          top: 0;
+          left: calc(100% + 10px);
+          color: $dark-color
+        }
+      }
+
+      input,
+      textArea,
+      select {
+        @include br_radius(.4rem);
+        display: block;
+        margin-block: .5rem 1rem;
+        width: 100%;
+        padding: .7rem 1rem;
+        font-size: .9rem;
+        font-weight: 500;
+        background-color: $white-color;
+        resize: none;
+
+        &[type='text'] {
+          color: $black-color;
+        }
+
+        &.btn {
+          @include button($white-color, $primary-color)
+        }
+      }
+    }
+  }
+}
+
+/* END APPOINTMENT SECTION STYLES */

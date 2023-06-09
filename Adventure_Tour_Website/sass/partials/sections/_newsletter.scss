@@ -1,0 +1,64 @@
+.newsletter {
+  background: $light_bg;
+
+  .content {
+    max-width: 70rem;
+    margin: 1rem auto;
+
+    p {
+      font-size: 1.5rem;
+      line-height: 2;
+      color: $black;
+      text-align: center;
+    }
+
+    form {
+      margin-top: 2rem;
+      background: $white;
+      @include border-radius(5rem);
+      border: $border;
+      padding: .7rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .email {
+        width: 100%;
+        background: none;
+        text-transform: none;
+        font-size: 1.7rem;
+        color: $black;
+        padding-inline: 1.3rem;
+      }
+
+      .btn {
+        margin-top: 0;
+        @include border-radius(5rem);
+        background: $black;
+        color: $white;
+
+        &:hover {
+          background: transparent;
+          color: $black
+        }
+      }
+    }
+  }
+}
+
+.clients {
+
+  .clients-slider {
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5rem;
+      flex-wrap: wrap;
+
+      img {
+        display: inline-block;
+      }
+    }
+  }
+}

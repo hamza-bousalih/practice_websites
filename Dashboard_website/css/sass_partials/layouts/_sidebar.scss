@@ -1,0 +1,99 @@
+/* start sidebar */
+.sidebar {
+  width: 250px;
+  background: $white;
+  padding: 1.25rem;
+  position: relative;
+  box-shadow: $box_shadow;
+
+  @include mobile {
+    width: 4rem;
+    padding: 0.625rem;
+  }
+
+  >h3 {
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+
+    @include mobile {
+      left: -2px;
+      font-size: .8125rem;
+    }
+
+    @include not_mobile {
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        background-color: $black;
+        @include centerX_p;
+      }
+
+      &::before {
+        width: 5rem;
+        height: 2px;
+        bottom: -20px;
+      }
+
+      &::after {
+        @include circle(12px);
+        border: 4px solid $white;
+        bottom: -29px;
+      }
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: $black;
+    padding: 1rem .625rem;
+    @include border_radius(.5rem);
+    @include centerX_flex(1.5rem);
+    @include transition(.3s);
+    margin-bottom: .4rem;
+
+    &.active {
+      background: $gray_bg;
+    }
+
+    &:hover {
+      background: $gray_bg;
+
+      @include mobile {
+        span {
+          width: fit-content;
+          padding-inline: 1rem;
+          border: $border;
+          overflow: visible;
+        }
+      }
+    }
+
+    span {
+      font-size: 1rem;
+      display: block;
+
+      @include mobile {
+        position: absolute;
+        left: calc(100% + .3rem);
+        z-index: $large_index;
+        background: $white;
+        color: $black;
+        padding-block: .6rem;
+        @include border_radius(.3rem);
+        word-break: keep-all;
+        overflow: hidden;
+        padding-inline: 0;
+        width: 0;
+      }
+    }
+  }
+}
+
+/* start sidebar */

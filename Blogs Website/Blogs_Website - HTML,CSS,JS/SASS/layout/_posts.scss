@@ -1,0 +1,13 @@
+/*==================================
+========== POSTS STYLES ============
+==================================*/
+
+.posts {
+  .posts__container {
+    @include grid_layout(300px, 3rem);
+  }
+
+  .post__image {
+    margin-bottom: 1rem;
+  }
+}

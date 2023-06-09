@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+*::after,
+*::before {
+  position: absolute;
+  content: '';
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  color: $black-color;
+  background-color: rgba($primary-color-variant, 0.1);
+  user-select: none;
+}
+
+.container {
+  width: $container-lg;
+  margin: 0 auto;
+
+  @include medium {
+    width: $container-md;
+  }
+
+  @include small {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.2;
+}
+
+section {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+
+  &>h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    color: $black-color;
+    text-transform: capitalize;
+  }
+
+  &>p {
+    text-align: center;
+    width: 42%;
+    margin: .6rem auto 2.5rem;
+    padding-inline: .4rem;
+    color: $dark-color;
+
+    @include medium {
+      width: 55%;
+    }
+
+    @include small {
+      width: $container-md;
+    }
+  }
+
+
+}
+
+.btn {
+  @include button;
+}
+
+.btn-primary {
+  @include button($white-color, $primary-color);
+}

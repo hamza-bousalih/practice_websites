@@ -1,0 +1,226 @@
+.content {
+
+  .site_control {
+    .control_box {
+      @include between_flex;
+      margin-bottom: 15px;
+
+      p {
+        @extend %explain_paragraph
+      }
+    }
+
+    textarea {
+      margin-top: 0.5rem;
+      resize: none;
+      width: 100%;
+      @include border_radius(5px);
+      border: none;
+      background: $gray_bg;
+      padding: 15px;
+      min-height: 180px;
+    }
+  }
+
+  .general_info {
+    div {
+      &:not(:last-child) {
+        margin-bottom: 1.3rem;
+      }
+
+      label {
+        display: block;
+        color: $gray;
+        margin-bottom: .8rem;
+      }
+
+      input {
+        width: 100%;
+        padding: .5rem 1rem;
+        @include border_radius(5px);
+        border: $border;
+
+        &.email {
+          display: inline-flex;
+          width: calc(100% - 80px);
+          border: none;
+          background: #ccc;
+          margin-right: 10px;
+          cursor: not-allowed;
+        }
+      }
+
+      .change {
+        // width: 80px;
+        color: $blue;
+
+        &:hover {
+          color: $blue-alt
+        }
+      }
+    }
+  }
+
+  .security_info {
+    >div {
+      @include between_flex;
+      padding-block: 1.3rem;
+
+      &:first-of-type {
+        padding-top: 0;
+      }
+
+      @include border_between;
+
+      p {
+        @extend %explain_paragraph;
+      }
+
+      .change {
+        @include button;
+      }
+
+      .devices {
+        @include gray_btn;
+      }
+    }
+  }
+
+  .social_info {
+    .social_box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      @each $social,
+      $color in $social_map {
+        &.#{$social} {
+          --social-color: #{$color};
+          --social-color-transparent: #{rgba($color,.1)};
+        }
+      }
+
+      &:focus-within {
+        span {
+          background: var(--social-color-transparent);
+          border-color: var(--social-color);
+
+          svg {
+            color: var(--social-color);
+          }
+        }
+
+        input {
+          background: var(--social-color-transparent);
+          border-color: var(--social-color);
+        }
+
+      }
+
+      span {
+        @include centre_flex;
+        width: 40px;
+        height: 40px;
+        background: $gray_bg;
+        @include border_radius(.3rem 0 0 .3rem);
+        border: $border;
+        border-right: none;
+        color: $gray;
+      }
+
+      input {
+        padding: .5rem .7rem;
+        width: 100%;
+        background: $gray_bg;
+        @include border_radius(0 .3rem .3rem 0);
+        border: $border;
+        text-transform: none;
+
+
+        &::placeholder {
+          text-transform: capitalize;
+          font-size: .9rem;
+        }
+      }
+    }
+  }
+
+  .widgets_control {
+    .control {
+      &:not(:last-child) {
+        margin-bottom: 1.4rem;
+      }
+
+      input {
+        @include checkbox;
+      }
+    }
+  }
+
+  .backup_control {
+    .date {
+      &:not(:last-child) {
+        margin-bottom: 1.4rem;
+      }
+
+      input {
+        @include radio;
+      }
+    }
+
+    .servers {
+      padding-top: 1.6rem;
+      border-top: $transparent_border;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      gap: .4rem;
+
+      @include breakpoint(max, 600px) {
+        display: block;
+
+      }
+
+      input {
+        appearance: none;
+
+        &:checked+.server {
+          opacity: 1;
+          border-color: $blue;
+          background: rgba($blue, .05);
+          color: $blue;
+        }
+      }
+
+      .server {
+        flex: 1;
+        @include border_radius(.6rem);
+        border: 2px solid $gray;
+        position: relative;
+        opacity: .2;
+        @include transition(.5s);
+        background: rgba($gray_bg, .05);
+
+        &:hover {
+          opacity: .7;
+        }
+
+        label {
+          display: block;
+          cursor: pointer;
+          padding: 1.5rem;
+
+          svg {
+            display: block;
+            position: relative;
+            @include centerX_p;
+            margin-bottom: .6rem;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+}

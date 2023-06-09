@@ -1,0 +1,721 @@
+.wrapper {
+
+  .widget.latest_news,
+  .widget.tickets {
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  .widget.latest_news,
+  .widget.latest_task,
+  .widget.latest_uploads {
+    padding: 20px 20px 0;
+  }
+
+  .welcome {
+    padding: 0;
+
+    .intro {
+      padding: $box_padding;
+      background: #eee;
+      display: flex;
+      justify-content: space-between;
+
+      img {
+        width: 170px;
+        margin-bottom: -10px;
+
+        @include mobile {
+          display: none;
+        }
+      }
+    }
+
+    .avatar {
+      @include circle(64px);
+      margin-top: -32px;
+      border: 3px solid $white;
+      box-shadow: 0 0 5px #ddd;
+
+      @include not_mobile {
+        margin-left: 2rem;
+      }
+    }
+
+    .body {
+      text-align: center;
+      padding: $box_padding*2.6;
+      margin-block: 20px;
+      border-block: $transparent_border;
+
+      @include not_mobile {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      div {
+        @include mobile {
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+        }
+
+        span {
+          display: block;
+          color: $gray;
+          font-size: 1rem;
+          margin-top: .65rem;
+        }
+      }
+    }
+
+    .visit {
+      @include button;
+      margin: 0 $box_padding 1.5rem auto;
+    }
+  }
+
+  .quick_draft {
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    form {
+
+      input[type='text'],
+      textarea {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: $gray_bg;
+        @include border_radius(.3rem);
+      }
+
+      textarea {
+        resize: none;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 180px
+      }
+
+      .save {
+        @include button;
+        margin-left: auto;
+        cursor: pointer;
+      }
+
+
+    }
+  }
+
+  .targets {
+
+    .target_row {
+      @include centerX_flex(15px);
+      margin-bottom: 1rem;
+
+      @each $name,
+      $color in $targets_map {
+        &.#{$name} {
+          --row-color: #{$color};
+          --row-color-transparent: #{rgba($color,.2)};
+        }
+      }
+
+      .icon {
+        width: 80px;
+        height: 80px;
+        @include centre_flex;
+        background: var(--row-color-transparent);
+
+        svg {
+          font-size: 1.4rem;
+          color: var(--row-color);
+        }
+      }
+
+      .details {
+        flex-grow: 1;
+        text-align: left;
+
+        .target_name {
+          font-size: 1rem;
+          color: $gray
+        }
+
+        .target_value {
+          display: block;
+          margin-block: 5px 10px;
+          font-weight: bold;
+        }
+
+        .progress {
+          @include progress(100%, 4px, var(--row-color-transparent), var(--row-color));
+
+          .prog_bar {
+            position: relative;
+          }
+
+          .prog_val {
+            background: var(--row-color);
+            color: $white;
+            position: absolute;
+            top: 16px;
+            right: -16px;
+            padding: 2px 5px;
+            font-size: 13px;
+            @include border_radius(.3rem);
+
+            &::after {
+              content: '';
+              position: absolute;
+              @include arrow_top(5px, var(--row-color));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tickets {
+
+    .box_container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      .ticket_box {
+        flex-grow: 1;
+        padding: 1.5rem;
+        border: $border;
+        @include border_radius(.5rem);
+        @include centerY_flex(1rem);
+        width: calc(50% - .5rem);
+
+        @include breakpoint(max, 600px) {
+          width: 100%;
+        }
+
+        &,
+        &>* {
+          @include transition(.3s);
+        }
+
+        @each $name,
+        $color in $tickets_map {
+          &.#{$name} {
+            --ticket-color: #{$color};
+            --ticket-color-transparent: #{rgba($color,.05)};
+          }
+        }
+
+        &:hover {
+          border-color: var(--ticket-color);
+          background-color: var(--ticket-color-transparent);
+
+          .text,
+          .number {
+            color: var(--ticket-color);
+          }
+        }
+
+        .icon {
+          color: var(--ticket-color);
+        }
+
+        .number {
+          font-size: 1.3rem;
+          font-weight: 700;
+        }
+
+        .text {
+          text-transform: capitalize;
+          color: $gray;
+        }
+      }
+    }
+  }
+
+  .latest_news {
+
+    .news_row {
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 0;
+      position: relative;
+
+      @include grey_background($orange);
+
+      @include border_between(rgba($orange, .2));
+
+      &:hover {
+        img {
+          rotate: 5deg;
+          scale: 1.04;
+        }
+      }
+
+      img {
+        width: 100px;
+        @include border_radius(.5rem);
+        margin-right: 1rem;
+        @include transition(.3s linear);
+      }
+
+      .info {
+        height: fit-content;
+        margin-right: .4rem;
+
+        .news_title {
+          font-size: 1.05rem;
+          margin-block: 0;
+          font-weight: 700;
+        }
+
+        .news_desc {
+          margin-block: 0;
+          padding-block: .6rem 0;
+          color: $gray;
+        }
+      }
+
+      .news_time {
+        margin-left: auto;
+        font-size: .7rem;
+        @include gray_btn;
+      }
+
+      @include mobile {
+        flex-direction: column;
+
+        &>* {
+          margin-block: .7rem;
+        }
+
+        .news_time {
+          margin-inline: auto;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .latest_task {
+    .task_row {
+      @include between_flex;
+      position: relative;
+      isolation: isolate;
+
+      @include grey_background;
+
+      @include border_between;
+
+      .info {
+
+        .task_title {
+          margin-bottom: 0;
+          font-size: 1rem;
+        }
+
+        .task_desc {
+          color: $gray;
+        }
+      }
+
+      .delete {
+        cursor: pointer;
+        @include transition(.3s);
+      }
+
+      &:not(.done) {
+        .delete {
+
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+
+      &.done {
+        opacity: .3;
+
+        .info {
+          text-decoration: line-through;
+        }
+
+        .delete {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .top_search {
+    .items_head {
+      @include between_flex;
+      color: $gray;
+      font-weight: 500;
+      margin-block: 2rem 1rem;
+      text-transform: capitalize;
+      font-size: 1.2rem;
+    }
+
+    .items {
+      @include grey_background;
+      @include between_flex;
+      padding-block: 1rem;
+
+      .count {
+        @include gray_btn;
+      }
+    }
+  }
+
+  .latest_uploads {
+    ul {
+      margin: 0;
+
+      .update_row {
+        @include grey_background;
+        @include between_flex;
+        padding-block: 1rem;
+
+        @include border_between;
+
+        .info {
+          @include centerX_flex(1rem);
+
+          img {
+            width: 50px
+          }
+
+          span {
+            display: block;
+
+            &:last-of-type {
+              margin-top: .5rem;
+              color: $gray;
+            }
+          }
+        }
+
+        .size {
+          @include gray_btn;
+          width: fit-content;
+        }
+
+        @include breakpoint(max, 400px) {
+          text-align: center;
+          flex-direction: column;
+
+          .info {
+            flex-direction: column;
+
+            span {
+              margin-bottom: .7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .project_progress {
+    position: relative;
+
+    ul {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 11px;
+        width: 2px;
+        height: 100%;
+        background: $blue;
+      }
+
+      .project_step {
+        margin-top: 1.6rem;
+        display: flex;
+        align-items: center;
+        text-shadow: 0 0 10px $white;
+
+        &::before {
+          content: '';
+          @include circle(20px);
+          background: $white;
+          border: 2px solid $white;
+          outline: 2px solid $blue;
+          margin-right: 15px;
+          z-index: 1;
+        }
+
+        &.done::before {
+          background: $blue;
+        }
+
+        &.current::before {
+          @include animation(change_color 1s infinite alternate)
+        }
+      }
+    }
+
+    img {
+      position: absolute;
+      opacity: .3;
+      width: 30%;
+      right: 1rem;
+      bottom: .5rem;
+
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  .reminders {
+    position: relative;
+
+    ul {
+      position: relative;
+
+      .reminder {
+        display: flex;
+        align-items: center;
+        margin-block: 10px;
+
+        @each $name,
+        $color in $reminders_map {
+          &.#{$name} {
+            --reminder-color: #{$color};
+            --reminder-color-transparent: #{rgba($color,.07)};
+          }
+        }
+
+        .key {
+          display: block;
+          margin-right: 15px;
+          @include circle(15px);
+          background-color: var(--reminder-color);
+        }
+
+        .info {
+          padding-left: 15px;
+          padding-block: 7px;
+          border-left: 3px solid var(--reminder-color);
+          position: relative;
+          isolation: isolate;
+          width: 100%;
+
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            transition: .5s ease;
+            z-index: -1;
+          }
+
+          &:hover::before {
+            background-color: var(--reminder-color-transparent);
+          }
+
+          .reminder_title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 5px;
+          }
+
+          .reminder_time {
+            font-size: .9rem;
+            color: $gray;
+          }
+        }
+      }
+    }
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+
+    .publisher {
+      @include centerX_flex(15px);
+
+      .publisher_avatar {
+        @include circle(40px);
+      }
+
+      .publisher_info {
+
+        .publisher_name {
+          display: block;
+          font-weight: 600;
+          margin-bottom: .4rem;
+        }
+
+        .time {
+          font-size: .9rem;
+          color: $gray;
+          display: block;
+        }
+      }
+    }
+
+    .post_content {
+      margin-block: 20px;
+      padding-block: 15px;
+      border-block: 1px solid rgba($gray, .3);
+      line-height: 2;
+
+      p {
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+    }
+
+    .post_stats {
+      margin-top: auto;
+      @include between_flex;
+      color: $gray;
+    }
+  }
+
+  .social_media {
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    .box {
+      padding: 15px;
+      position: relative;
+      margin-bottom: 10px;
+      @include between_flex;
+      padding-left: 70px;
+
+      @each $name,
+      $color in $social_map {
+        &.#{$name} {
+          --social-color: #{$color};
+          --social-color-transparent: #{rgba($color,.2)};
+          --social-color-light: #{lighten($color,8%)};
+        }
+      }
+
+      color: var(--social-color);
+      background-color: var(--social-color-transparent);
+
+      .social_media_icon {
+        background: var(--social-color);
+        color: $white;
+        height: 100%;
+        @include centre_flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 52px;
+      }
+
+      .media_stats {
+        color: var((--social-color));
+      }
+
+      .follow_btn {
+        margin-left: auto;
+        @include button(false, var(--social-color), $white, var(--social-color-light));
+        @include transition(.3s);
+      }
+    }
+  }
+}
+
+.projects_table {
+
+  .responsive_table {
+    overflow-x: auto;
+
+    table {
+      font-size: 1rem;
+      width: 100%;
+      min-width: 950px;
+      border-spacing: 0;
+
+      td {
+        padding: 15px;
+      }
+
+      thead {
+        td {
+          background: $gray_bg;
+          font-weight: 600;
+          white-space: nowrap;
+        }
+      }
+
+      tbody {
+
+        tr {
+
+          @each $status,
+          $color in $projects_status_map {
+            &.#{$status} {
+              --status-color: #{$color};
+              --status-color-transparent: #{rgba($color,.05)};
+              --status-color-light: #{lighten($color,8%)};
+            }
+          }
+        }
+
+        tr:hover td {
+          background: var(--status-color-transparent);
+        }
+
+        td {
+          border-bottom: $transparent_border;
+          border-left: $transparent_border;
+          @include transition(.3s);
+
+          &:last-child {
+            border-right: $transparent_border;
+          }
+
+          img {
+            @include circle(32px);
+            padding: 2px;
+            background: $white;
+
+            &:not(:first-child) {
+              margin-left: -20px;
+            }
+          }
+
+          .label {
+            @include button(false, var(--status-color), $white, var(--status-color-light));
+          }
+        }
+      }
+    }
+  }
+}
+
+@include keyframes(change_color) {
+  from {
+    background: $blue;
+  }
+
+  50% {
+    background: $white;
+  }
+
+  to {
+    background: $blue;
+  }
+}

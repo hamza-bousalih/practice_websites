@@ -1,0 +1,108 @@
+.wrapper {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  .friend {
+    position: relative;
+    isolation: isolate;
+
+    @include breakpoint(max, 500px) {
+      text-align: center;
+    }
+
+    .contact {
+      display: flex;
+      gap: .5rem;
+      position: absolute;
+      left: 15px;
+      top: 15px;
+
+      span {
+        @include centre_flex;
+        @include circle(40px);
+        background: rgba($gray_bg, 1);
+        color: $gray;
+        cursor: pointer;
+      }
+    }
+
+    .friend_avatar {
+      text-align: center;
+      padding-top: 1rem;
+      border-bottom: $transparent_border;
+
+      .avatar_img {
+        @include circle(150px);
+      }
+
+      .avatar_name {
+        margin-block: .5rem 0;
+        font-size: 1.3rem;
+      }
+
+      .avatar_job {
+        color: $gray;
+        margin-top: 1rem;
+      }
+    }
+
+    .friend_details {
+      position: relative;
+      padding-block: .5rem;
+      border-bottom: $transparent_border;
+
+      >div {
+        padding-block: .5rem;
+
+        svg {
+          margin-right: .5rem;
+        }
+
+      }
+
+      span.vip {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        color: rgba($color: $orange, $alpha: 0.1);
+        font-weight: bold;
+        font-size: 5rem;
+        text-transform: uppercase;
+
+        @include breakpoint(max, 500px) {
+          font-size: 3rem;
+        }
+      }
+    }
+
+    .friend_info {
+      @include between_flex;
+      padding-top: 1rem;
+      gap: .5rem;
+
+      @include breakpoint(max, 500px) {
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .joined_time {
+        color: $gray;
+        font-size: .9rem;
+      }
+
+      div {
+        display: flex;
+        gap: .5rem;
+
+        .profile_btn {
+          @include button;
+        }
+
+        .remove_btn {
+          @include button(true, $red);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+/* START NAVBAR STYLES */
+
+nav {
+  width: 100vw;
+  height: 4rem;
+  position: fixed;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 1rem 2rem rgba($black-color, .1);
+  @include gradient_bg;
+
+  &.window-scroll {
+    background: $white-color;
+
+    .container {
+      @include breakpoint(min, 900px) {
+        color: $black-color;
+      }
+
+      a {
+
+        &>h3 {
+          color: $black-color;
+        }
+
+        &.btn {
+          color: $white-color;
+        }
+      }
+
+      button {
+        color: $black-color;
+      }
+    }
+
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav__logo h3 {
+      font-weight: 400;
+      letter-spacing: 0.068em;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+
+      @include breakpoint(max, 901px) {
+        position: fixed;
+        right: 5%;
+        top: 4rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        display: none;
+        perspective: 300px;
+
+        li {
+          width: 100%;
+          @include animation(flip_nav_item .3s ease forwards);
+          transform-origin: top;
+          opacity: 0;
+
+          @for $i from 1 to 5 {
+            &:nth-child(#{$i + 1 }) {
+              animation-delay: $i * 200ms;
+            }
+          }
+
+          @keyframes flip_nav_item {
+            from {
+              @include transform(rotateX(90deg));
+            }
+
+            to {
+              opacity: 1;
+              @include transform(rotateX(0));
+            }
+          }
+
+          a {
+            display: block;
+            padding: 1.5rem 2rem;
+            border-radius: 0;
+            background:
+              linear-gradient(to bottom,
+                $primary-color-variant,
+                darken($primary-color-variant, 12%));
+
+            &.btn {
+              background: $secondary-color;
+            }
+          }
+        }
+      }
+
+      a {
+        color: inherit;
+        font-weight: 400;
+        font-size: 1rem;
+        text-transform: capitalize;
+      }
+    }
+
+    button {
+      @include breakpoint(min, 900px) {
+        display: none;
+      }
+
+      display: inline-block;
+      background: transparent;
+      color: $white-color;
+      font-size: 2rem;
+      cursor: pointer;
+
+      &#close__nav-btn {
+        display: none;
+      }
+    }
+
+  }
+}
+
+/* END NAVBAR STYLES */

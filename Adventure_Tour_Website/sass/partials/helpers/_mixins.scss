@@ -1,0 +1,115 @@
+// set font mixin
+@mixin se_font($name, $font_name, $weight: '400', $style: '') {
+  @font-face {
+    font-family: $name+ '_' + $weight + $style;
+    src: url(./fonts/#{$font_name}-#{$weight}#{$style}.ttf);
+  }
+}
+
+// breakpoint mixins
+@mixin medium_screen {
+  @media screen and (width <=1200px) {
+    @content;
+  }
+}
+
+@mixin small_screen {
+  @media screen and (width <=992px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (width <=768px) {
+    @content;
+  }
+}
+
+@mixin extra_small_screen {
+  @media screen and (width <=450px) {
+    @content;
+  }
+}
+
+@mixin breakpoint($minmax, $val) {
+  @if $minmax==min {
+    @media screen and (width>=$val) {
+      @content;
+    }
+  }
+
+  @else if $minmax==max {
+    @media screen and (width<=$val) {
+      @content;
+    }
+  }
+
+  @else {
+    @error you passed a wrong minmax;
+  }
+}
+
+// prefixes mixins
+@mixin prefixer($pr, $val, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$pr}: $val;
+  }
+
+  #{$pr}: $val;
+}
+
+@mixin border-radius($val) {
+  @include prefixer(border-radius, $val, webkit moz ms o)
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  @include border-radius(50%)
+}
+
+// grid mixin
+@mixin grid($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 1.5rem;
+}
+
+// centering mixins
+@mixin centre_flex ($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+// wrapper mixin
+@mixin wrapper($gap: 0) {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  gap: if($gap>0, $gap, null);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+// buttons mixins
+@mixin button() {
+  margin-top: 1rem;
+  display: inline-block;
+  border: $border;
+  color: $black;
+  background: none;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+
+  &:hover {
+    background: $black;
+    color: $white;
+  }
+}
