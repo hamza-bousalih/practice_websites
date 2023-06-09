@@ -1,0 +1,39 @@
+body>div {
+  position: relative;
+  width: 700px;
+}
+
+body > div > div {
+  padding-left: 30px;
+}
+
+body>div>:nth-child(2) {
+  width: 45%;
+}
+
+
+body>div> :nth-child(2) button {
+  width: 90%;
+  margin: 20px auto 0;
+}
+
+body > div > :last-child {
+  width: 55%;
+  position: absolute;
+  top: 209px;
+  right: 0;
+}
+
+body > div >:last-child > :last-child {
+  width: 70%;
+  padding-right: 0;
+}
+
+.attribution {
+  width: 500px;
+  line-height: 1.5em;
+}
+
+.attribution a {
+  color: hsl(103, 100%, 50%);
+}

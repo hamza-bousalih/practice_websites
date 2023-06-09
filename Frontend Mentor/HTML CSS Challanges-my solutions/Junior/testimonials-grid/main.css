@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: font;
+  src: url(https://fonts.google.com/specimen/Barlow+Semi+Condensed);
+}
+
+@font-face {
+  font-family: font2;
+  src: url(font/corbel.ttf);
+}
+
+body {
+  background-color: hsl(210, 46%, 95%);
+  padding: 80px 20px;
+  font-family: font, font2, serif;
+}
+
+body > div {
+  width: 100%;
+}
+
+/* styling the cards */
+
+body>div>div {
+  padding: 30px 20px 30px 30px;
+  background-color: white;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px hsl(205, 36%, 79%);
+}
+
+
+body>div> :first-child {
+  color: white;
+  background-color: hsl(263, 55%, 52%);
+  background-image: url(images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: top right 20px;
+  background-size: 30% 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+body>div> :nth-child(2) {
+  color: white;
+  background-color: hsl(217, 19%, 35%);
+}
+
+body>div> :nth-child(3) {
+  background-color: hsl(0, 0%, 100%);
+}
+
+body>div> :nth-child(4) {
+  color: white;
+  background-color: hsl(219, 29%, 14%);
+}
+
+body>div> :last-child {
+  background-color: hsl(0, 0%, 100%);
+}
+
+/* styling the header of cards */
+
+body>div>div>div {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.637);
+  margin-right: 20px;
+}
+
+body>div>div>div>div {
+  display: flex;
+  flex-direction: column;
+}
+
+body>div>div>div>div> :first-child {
+  letter-spacing: .05em;
+  font-weight: 700;
+}
+
+body>div>div>div>div> :last-child {
+  opacity: .5;
+}
+
+/* styling the h3 */
+
+h3 {
+  font-size: 19px;
+  margin-bottom: 20px;
+}
+
+/* styling paragraph */
+
+p {
+  opacity: .5;
+  font-size: 13px;
+  font-weight: 600;
+}

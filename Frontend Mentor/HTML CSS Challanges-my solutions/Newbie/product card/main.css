@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(246 234 223);
+}
+
+.card {
+  position: relative;
+  width: 800px;
+  background-color: rgb(255 255 252);
+  margin: 100px auto 0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: .5px .5px 10px hsl(210, 2%, 78%);
+  cursor: default;
+}
+
+.img {
+  width: 50%;
+}
+
+.img-mobile {
+  display: none;
+}
+
+.content {
+  position: relative;
+  padding: 30px;
+}
+
+.pre {
+  /* text-transform: lowercase; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+h1 {
+  margin: 20px 0;
+  font-size: 55px;
+  line-height: 50px;
+}
+
+p {
+  margin: 30px 0;
+  font-size: 18px;
+}
+
+div.price {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+span.price {
+  display: block;
+  padding: 2px 5px;
+  color: rgb(6 64 56);
+  font-weight: 700;
+  font-size: 50px;
+  margin-right: 20px;
+  opacity: .7;
+}
+
+span.price:hover {
+  border-radius: 15px;
+  background-color: rgb(155, 0, 0);
+  color: white;
+}
+
+button {
+  padding: 20px;
+  margin: 0 auto;
+  border: none;
+  background-color: hsl(172, 83%, 14%);
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  letter-spacing: .75;
+  width: 80%;
+  bottom: 50px;
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  opacity: .8;
+}
+
+button span {
+  font-weight: bold;
+  font-size: 18px;
+  opacity: .8;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.opacity {
+  opacity: .5;
+}
+
+.font {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.attribution {
+  width: fit-content;
+  background-color: rgb(83, 26, 92);
+  color: white;
+  letter-spacing: 1.1px;
+  padding: 10px;
+  margin: 20px auto;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: .5px .5px 10px hsl(210, 2%, 78%);
+  opacity: .8;
+}
+
+.attribution a {
+  color: hsl(48, 83%, 74%);
+  text-decoration: none;
+}
+
+@media (max-width: 400px) {
+
+  body {
+    margin: 5px;
+  }
+
+  .card {
+    width: 90%;
+    margin: 50px auto;
+    flex-direction: column;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .img-mobile {
+    display: block;
+    box-shadow: 0px 2px 6px 0px #595959;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  h1 {
+    margin: 10px 0;
+    font-size: 35px;
+    line-height: 38px;
+  }
+
+  p {
+    margin: 10px 0 0;
+    font-size: 14px;
+  }
+
+  div.price {
+    margin: 10px 0 10px;
+    font-size: 13px;
+  }
+
+  span.price {
+    font-size: 40px;
+  }
+
+  button {
+    padding: 15px;
+    width: 90%;
+    position: static;
+  }
+
+  .attribution {
+    width: 70%;
+    margin-top: -33px;
+  }
+
+  .attribution span {
+    display: block;
+  }
+}

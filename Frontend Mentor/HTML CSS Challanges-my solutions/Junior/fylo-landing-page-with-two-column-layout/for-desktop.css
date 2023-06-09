@@ -1,0 +1,280 @@
+body {
+  width: 1440px;
+}
+
+/* styling the navigation */
+
+nav {
+  padding: 30px 40px;
+}
+
+nav>img {
+  width: 150px;
+}
+
+nav>div a {
+  font-size: 1.8em;
+  margin-right: 40px;
+}
+
+/* styling the div one in main section */
+
+main> :first-child {
+  display: flex;
+  flex-direction: row;
+  padding: 60px 100px 0;
+  margin: 0 auto;
+}
+
+main> :first-child>div {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-right: 60px;
+  align-self: center;
+}
+
+main> :first-child>div>h1 {
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+
+main> :first-child>div>p {
+  text-align: left;
+  font-weight: 700;
+  font-size: .95em;
+  transform: scale(1);
+  opacity: .5
+}
+
+main> :first-child>div>div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 25px;
+}
+
+main> :first-child input,
+main> :first-child button {
+  padding: 10px 20px 10px 15px;
+  border-radius: 5px;
+  font-size: .6em;
+}
+
+main> :first-child input {
+  margin-bottom: 0;
+  width: 250px;
+}
+
+main> :first-child button {
+  width: 150px;
+  margin-left: 15px;
+}
+
+main> :first-child>img {
+  width: 500px;
+}
+
+/* styling the second div in main section */
+
+main> :nth-child(2) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-image: url(images/bg-curve-desktop.svg),
+    linear-gradient(to bottom, #fff 40px, #F8F8FE 40px);
+  padding: 100px 60px;
+  margin: 50px 0;
+}
+
+main> :nth-child(2)>img {
+  width: 40%;
+  margin-bottom: 0;
+}
+
+main> :nth-child(2)>div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+}
+
+main> :nth-child(2) h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+main> :nth-child(2)>div>p {
+  margin-bottom: 15px;
+  font-size: 1em;
+  width: 80%;
+  opacity: .8;
+  transform: scale(.9);
+  margin-left: -25px;
+}
+
+main> :nth-child(2)>div>a {
+  padding-right: 25px;
+  opacity: .7;
+  font-size: 1.5em;
+}
+
+main> :nth-child(2)>div>a::before {
+  content: url(images/icon-arrow.svg);
+  position: absolute;
+  right: 0;
+  top: 1px;
+  transform: scale(1.5);
+}
+
+main> :nth-child(2) .card {
+  width: 350px;
+  padding: 20px 20px 20px 25px;
+  margin:0;
+  position: relative;
+  box-shadow: 2px 2px 5px rgb(182, 182, 182);
+  border-radius: 8px;
+}
+
+main> :nth-child(2) .card>p {
+  padding-right: 5px;
+  font-size: .9em;
+  line-height: 1.4em;
+  opacity: .7;
+  font-weight: 400;
+}
+
+main> :nth-child(2) .card>div>img {
+  width: 35px;
+}
+
+main> :nth-child(2) .card>div>div> :last-child {
+  opacity: .7;
+  font-weight: bold;
+}
+
+/* styling the last div in main section */
+
+main> :last-child {
+  padding: 70px 40px 60px 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+main> :last-child>div {
+  display: flex;
+  flex-direction: column;
+}
+
+main> :last-child>div h3 {
+  text-align: left;
+  font-size: 1.5em;
+}
+
+main>:last-child>div p {
+  margin: 020px 0;
+  text-align: left;
+  font-size: .8em;
+  width: 400px;
+}
+
+main> :last-child>:last-child {
+  align-items: flex-start;
+}
+
+main> :last-child>:last-child button {
+  width: 170px;
+}
+
+main> :last-child> :last-child input {
+  width: 400px;
+}
+
+/* styling the footer */
+
+/* footer {
+  height: 300px;
+  padding: 120px 30px;
+}
+
+footer {
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+footer>div {
+  display: flex;
+  flex-direction: column;
+}
+
+footer>img {
+  position: absolute;
+  top: 40px;
+  left: 200px;
+}
+
+footer>div:nth-of-type(3),
+footer>div:last-of-type {
+  margin: 0;
+}
+
+footer> :last-child {
+  left: 200px;
+  bottom: 80px;
+} */
+
+.logo {
+  grid-area: logo;
+}
+.phone {
+  grid-area: phone;
+}
+.email {
+  grid-area: email;
+}
+.link1 {
+  grid-area: link1;
+}
+.link2 {
+  grid-area: link2;
+}
+.social-media {
+  grid-area: social-media;
+}
+
+footer {
+  padding: 60px;
+  position: static;
+  display: grid;
+  grid-template-areas: "logo logo logo logo"
+    "phone link1 link2 social-media"
+    "email link1 link2 social-media";
+}
+
+.email {
+  margin-top: -50px;
+}
+
+footer>div {
+  display: flex;
+  flex-direction: column;
+}
+
+footer>img {
+  width: 150px;
+  margin-bottom: 30px;
+}
+
+footer>div:nth-of-type(3),
+footer>div:last-of-type {
+  margin: 0;
+}
+
+footer> :last-child {
+  position: static;
+}

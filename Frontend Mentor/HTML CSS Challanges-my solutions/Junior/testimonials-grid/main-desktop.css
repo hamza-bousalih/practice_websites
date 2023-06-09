@@ -1,0 +1,58 @@
+
+body {
+  width: 1440px;
+  height: 120vh;
+}
+
+body>div {
+  width: calc(1440px*90%);
+  height: 300px;
+  display: grid;
+  grid-template-areas: "danial danial danial jonathan kira"
+  "jeanette patrick patrick patrick kira";
+  transform: scale(.7);
+  margin: 0 auto;
+}
+
+.danial {
+  grid-area: danial;
+}
+.jonathan {
+  grid-area: jonathan;
+}
+.jeanette {
+  grid-area: jeanette;
+}
+.patrick {
+  grid-area: patrick;
+}
+.kira {
+  grid-area: kira;
+}
+
+body>div>div {
+  margin: 20px;
+}
+
+
+body>div> :first-child {
+  background-size: 120px;
+  background-position: top right 60px;
+}
+
+h3 {
+  width: 100%;
+  padding-right: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  line-height: 1.4em;
+}
+
+p {
+  padding-right: 30px;
+  opacity: .5;
+  font-size: 15px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height: 1.5em;
+}

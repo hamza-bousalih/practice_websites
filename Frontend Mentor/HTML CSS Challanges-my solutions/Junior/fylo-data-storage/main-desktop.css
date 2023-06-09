@@ -1,0 +1,68 @@
+
+body {
+  width: 1440px;
+  background-image: url(images/bg-desktop.png);
+  background-repeat: no-repeat;
+  background-position-y: 225px;
+  background-color: hsl(229, 57%, 11%);
+}
+
+body>div {
+  width: 1000px;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* styling first box */
+
+body > div > :first-child {
+  width: 500px;
+  margin-right: 30px;
+  padding:40px 40px 30px;
+}
+
+/* finish styling the first box */
+/* then lets move to the next box */
+
+body>div>:last-child {
+  width: 800px;
+  padding: 30px 30px
+}
+
+p {
+  text-align: left;
+}
+
+body>div> :last-child> :nth-child(2) {
+  margin-bottom: 6px;
+}
+
+body > div > :last-child >:last-child {
+  margin: 0;
+}
+
+body>div> :last-child> :nth-child(3) {
+  bottom: initial;
+  top: -45px;
+  right: 50px;
+  left: initial;
+}
+
+body>div> :last-child> :nth-child(3)>span {
+  opacity: 1;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+body>div> :last-child> :nth-child(3) ::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  bottom: -23px;
+  width: 30px;
+  height: 30px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: white white transparent transparent;
+}

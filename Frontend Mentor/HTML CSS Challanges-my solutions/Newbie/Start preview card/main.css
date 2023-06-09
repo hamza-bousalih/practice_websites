@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 10px;
+  background-color: #0c0c1b;
+}
+
+:root {
+  --width: 700px;
+}
+
+.card {
+  position: relative;
+  width: var(--width);
+  background-color: rgba(84, 49, 156, 0.271);
+  margin: 50px auto 0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+img {
+  width: 45%;
+  filter: brightness(1);
+}
+
+.filter {
+  position: absolute;
+  z-index: 100;
+  width: calc(var(--width)/100*45);
+  height: 600px;
+  background-color: rgb(95, 1, 146);
+  opacity: .5;
+}
+
+.img-mobile {
+  display: none;
+}
+
+.content {
+  color: white;
+  padding: 30px 50px 30px 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+h1>span {
+  color: violet;
+}
+
+p {
+  font-size: 12px;
+  line-height: 1.5em;
+  margin-bottom: 10px;
+  opacity: .5;
+}
+
+.content>div {
+  display: flex;
+  font-size: 14px;
+  line-height: 2em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 30px;
+}
+
+.opacity {
+  opacity: .5;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+.bold {
+  font-size: 23px;
+  font-weight: 900;
+}
+
+
+.attribution {
+  overflow: hidden;
+  width: fit-content;
+  margin: 20px auto;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(85, 135, 0, 0.605);
+  color: white;
+  text-shadow: .5px .5px 5px black;
+}
+
+.attribution a {
+  color: red;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 400px) {
+  body {
+    margin: 50px 20px;
+  }
+  .card {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .img-mobile {
+    display: block;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .filter {
+    display: none;
+  }
+
+  h1 {
+  text-align: center;
+  }
+
+  p {
+  text-align: center;
+  }
+
+  .content > div {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .content > div > div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .attribution{
+    width: 65%;
+    font-size: 14px;
+  }
+}

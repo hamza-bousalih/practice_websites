@@ -1,0 +1,54 @@
+body {
+  width: 1440px;
+  background-image: url(images/bg-desktop.svg);
+  padding: 60px;
+}
+
+body> :first-child,
+body> :first-child> :last-child {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+body> :first-child {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 130px;
+}
+
+img:first-of-type {
+  width: 250px;
+}
+
+img:nth-of-type(2) {
+  width: 600px;
+  margin: 0;
+}
+
+body> :first-child> :last-child {
+  width: 500px;
+  padding: 20px 50px;
+  flex-direction: column;
+}
+
+h3 {
+  width: 90%;
+  text-align: left;
+  font-size: 30px;
+  line-height: 2em;
+  line-height: 1.6em;
+}
+
+p {
+  padding: 20px 0;
+  text-align: left;
+  width: 100%;
+}
+
+button {
+  padding: 15px 60px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: font;
+  src: url(font/corbel.ttf);
+}
+
+body {
+  background-image: url(images/bg-mobile.png);
+  background-repeat: no-repeat;
+}
+
+body>div {
+  width: 300px;
+  font-family: font, serif;
+  margin: 120px auto;
+}
+
+/* styling first box */
+
+body>div>div {
+  background-color: hsl(228, 56%, 26%);
+  color: white;
+  padding: 40px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+body>div> :first-child {
+  border-top-right-radius: 100px;
+}
+
+body>div> :first-child> :last-child {
+  margin-top: 20px;
+}
+
+body>div> :first-child> :last-child>span {
+  display: inline-block;
+  padding: 15px 15px 10px;
+  background-color: hsl(229, 57%, 11%);
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+body>div> :first-child> :last-child> :nth-child(2) {
+  padding-top: 17px;
+}
+
+body>div> :first-child> :last-child> :last-child {
+  padding-top: 20px;
+}
+
+/* finish styling the first box */
+/* then lets move to the next box */
+
+body > div >:last-child {
+  position: relative;
+}
+
+p {
+  text-align: center;
+}
+
+body>div>:last-child>p>:first-child,
+body>div>:last-child>p>:last-child {
+  opacity: .7;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+body>div>:last-child>p>:nth-child(2){
+  font-size: 16px;
+  font-weight: bolder;
+  opacity: 1;
+  letter-spacing: 1px;
+}
+
+body > div > :last-child > :nth-child(2) {
+  width: 100%;
+  height: 25px;
+  background-color: hsla(229, 57%, 11%, 0.719);
+  margin: 20px 0 5px;
+  padding: 4px;
+  border-radius: 40px;
+}
+
+body>div> :last-child> :nth-child(2) >div {
+  width: 80%;
+  height: 100%;
+  background-image: linear-gradient(to right, hsl(6, 100%, 80%) , hsl(335, 100%, 65%));
+  border-radius: inherit;
+  position: relative
+}
+
+body>div> :last-child> :nth-child(2)>div::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: inherit;
+  background-color: white;
+  right: 3px;
+  top: 2px;
+}
+
+body>div> :last-child> :nth-child(3) {
+  position: absolute;
+  padding: 15px 20px;
+  background-color: white;
+  color: black;
+  font-family: font, serif;
+  font-weight: 900;
+  font-size: 30px;
+  text-shadow: 1px 1px black, -1px -1px black;
+  border-radius: 10px;
+  bottom: -30px;
+  width: 200px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+body>div> :last-child> :nth-child(3) > span{
+  text-shadow: none;
+  text-transform: uppercase;
+  font-size: 15px;
+  opacity: .7;
+}
+
+body > div>:last-child >:last-child {
+  margin: 0 auto 30px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+body > div > div {
+  box-shadow: 2px 2px 10px hsla(228, 57%, 14%, 0.856);
+}

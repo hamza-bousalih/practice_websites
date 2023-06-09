@@ -1,0 +1,199 @@
+
+body {
+  background-image: url(images/bg-header-desktop.png);
+  width: 1440px;
+}
+
+body> div {
+  margin: 0 auto;
+}
+
+header,
+main,
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+/* styling the header */
+
+header {
+  margin: 0 auto;
+  padding: 120px 30px 100px;
+}
+
+header>h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+p {
+  width: 600px;
+  font-size: 17px;
+  margin-top: 0;
+  opacity: .4;
+  line-height: 30px;
+}
+
+button {
+  width: 200px;
+  padding-top: 20px;
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+/* styling the main content */
+
+main>h2 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.flex1 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.flex1 > img {
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.flex1 > div {
+  padding-top: 40px;
+}
+
+.flex1 > div >h2 {
+  text-align: left;
+  font-size: 1.4em;
+  margin-bottom: 20px;
+}
+
+.flex1 > div >p {
+  text-align: left;
+  width: 350px;
+}
+
+.head {
+  margin-top: 0px;
+  font-size: 30px;
+}
+
+#img {
+  margin-top: 50px;
+  width: 900px;
+}
+
+.flex2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex2 > div {
+  height: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.flex2 > div > img {
+  margin: 0;
+}
+
+.flex2 > div > h2{
+  margin: 20px 0;
+}
+
+.flex2 > div >p {
+  line-height: 1.5em;
+  width: 280px;
+}
+
+.flex2> :nth-child(2) > img {
+  margin-top: -20px;
+}
+
+.flex2 > :last-child > img {
+  margin-top: -52px;
+}
+
+.last-paragraph {
+  margin-bottom: 0;
+}
+
+main> .logos {
+  display: flex;
+  flex-direction: row;
+}
+
+main>div>img {
+  width: auto;
+  margin-right: 100px;
+}
+
+p:last-of-type {
+  margin-top: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+/* styling the footer  */
+
+footer {
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #eee;
+  padding: 0 0 40px;
+}
+
+footer>img {
+  width: 50px;
+  margin-bottom: 0;
+}
+
+footer> div a {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+  opacity: .5;
+}
+
+footer > :nth-child(2) {
+  display: flex;
+  flex-direction: row;
+}
+
+footer > :nth-child(2) > div{
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+
+footer > :nth-child(2) >:last-child {
+  align-self: flex-start;
+}
+
+footer > :last-child {
+  /* position: absolute; */
+  right: 40px;
+}
+
+footer>div {
+  width: fit-content;
+  margin: 40px 0 0;
+}
+

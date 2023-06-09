@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  position: relative;
+  overflow: hidden;
+  width: 375px;
+  padding: 20px;
+  background-color: hsl(185, 75%, 39%);
+}
+
+:root {
+  --circle: 400px;
+}
+.circle {
+  width: var(--circle);
+  height: var(--circle);
+  border-radius: 50%;
+  background-color: aqua;
+  opacity: .2;
+  position: absolute;
+}
+
+.body > div:nth-of-type(1) {
+  left: calc(var(--circle)/1.75*(-1));
+  top: calc(var(--circle)/2.5*(-1));
+}
+
+.body > div:nth-of-type(2) {
+  right: calc(var(--circle)/1.75*(-1));
+  bottom: calc(var(--circle)/4*(-1));
+}
+
+.card {
+  position: relative;
+  width: 90vw;
+  margin: 20vh auto 10vh;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.avatar {
+  width: 100px;
+  margin: -50px auto 0;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content > div:first-child {
+  width: 55%;
+  margin: 15px auto 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+.content > span {
+  margin: 0 auto;
+  font-weight: 200;
+}
+
+.content > div:nth-of-type(2) {
+  width: 100%;
+  height: 1px;
+  background-color: rgb(181, 181, 181);
+  margin: 20px 0;
+}
+
+.content > div:last-child {
+  display: flex;
+  justify-content: space-around;
+}
+
+.content > div:last-child > div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.content > div:last-child > div :first-child {
+  font-weight: bolder;
+}
+
+.opacity {
+  opacity: .5;
+}
+
+.attribution {
+  background-color: greenyellow;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  opacity: .5;
+}
+
+.attribution:hover {
+  opacity: 1;
+}
+
+.attribution a {
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 376px) {
+  .body {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  :root {
+    --circle: 1000px;
+  }
+
+
+
+  .card {
+    width: 400px;
+  }
+
+  .attribution {
+    width: 300px;
+    margin: -40px auto 0;
+  }
+}

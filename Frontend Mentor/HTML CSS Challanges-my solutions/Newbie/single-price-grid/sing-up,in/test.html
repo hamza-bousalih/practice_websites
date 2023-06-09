@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(93, 93, 93);
+      }
+
+      div {
+        position: relative;
+        margin-top: 50px;
+      }
+
+      input {
+        padding: 10px;
+        border: none;
+        font: inherit;
+        color: #fff;
+        background-color: transparent;
+        border-bottom: 1px white solid;
+      }
+
+      label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #fff;
+        transform: translate(10px, 10px);
+        transition: transform .25s;
+      }
+
+      input:focus+label,
+      input:valid+label {
+        transform: translate(0, -20px) scale(.8);
+      }
+      input:is(:focus ,:valid) {
+        outline: none;
+        border-bottom: 2px blue solid;
+        padding: 10px 10px 5px 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input-group">
+      <input type="text"
+              class="input"
+              id="name"
+              required>
+      <label for="name"
+              class="input-label">First name</label>
+    </div>
+  </body>
+</html>

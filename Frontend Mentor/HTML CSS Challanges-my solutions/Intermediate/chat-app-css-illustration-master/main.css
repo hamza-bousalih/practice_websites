@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: font;
+  src: url(font/TAHOMA_0.TTF);
+}
+
+@font-face {
+  font-family: fontB;
+  src: url(font/TAHOMAB0.TTF);
+}
+
+body {
+  font-family: font, sans-serif;
+  background-color: hsl(270, 20%, 96%);
+}
+
+.bg {
+  width: 60vw;
+  height: 80vh;
+  background-color: hsl(264, 100%, 61%);
+  border-radius: 0 0 300px 70px;
+  position: absolute;
+  left: -100px;
+  top: 0;
+  z-index: -1;
+}
+
+section {
+  width: 300px;
+  margin: 60px auto;
+  overflow: hidden;
+  border-radius: 30px;
+  padding: 15px;
+  background-color: white;
+  position: relative;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 35px;
+  background-color: white;
+  top: -5px;
+  right: 75px;
+  border-radius: 50px;
+  z-index: 3;
+}
+
+section>div {
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+section>div>nav {
+  padding: 30px 20px 10px;
+  background-color: red;
+  background-image: linear-gradient(to right, hsl(264, 100%, 50%) 30%, hsl(293, 100%, 63%));
+  display: flex;
+  align-items: center;
+  color: white;
+  border-radius: 10px;
+  z-index: 2;
+  box-shadow: 0 4px 5px hsl(0, 0%, 82%);
+}
+
+nav>img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid hsla(0, 0%, 100%, 0.7);
+}
+
+nav>div {
+  display: flex;
+  flex-direction: column;
+}
+
+nav>div> :first-child {
+  font-weight: 600;
+  opacity: .9;
+}
+
+nav>div> :last-child {
+  font-weight: 400;
+  opacity: .5;
+  transform: scale(.8);
+  margin-left: -10px;
+}
+
+section>div>main {
+  background-color: hsl(270, 20%, 96%);
+  padding: 15px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.leftMessage {
+  width: 75%;
+  color: hsl(276, 55%, 52%);
+  background-color: hsla(264, 100%, 61%, 0.08);
+  padding: 10px;
+  font-size: .7em;
+  margin-bottom: 10px;
+  border-radius: 15px 10px 10px 5px;
+  box-shadow: 1px 1px 2px hsla(276, 55%, 52%, 0.7);
+}
+
+main>div:first-of-type {
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.rightMessage {
+  width: 150px;
+  color: hsl(271, 15%, 43%);
+  background-color: hsla(0, 0%, 100%, 0.5);
+  padding: 10px;
+  font-size: .7em;
+  margin-bottom: 10px;
+  border-radius: 10px 15px 5px 10px;
+  box-shadow: 1px 1px 2px hsla(271, 15%, 43%, 0.7);
+}
+
+.img {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+
+.img img {
+  width: 40px;
+  border-radius: 10px;
+  margin-left: 7px;
+}
+
+.walkBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding: 10px 20px 5px 40px;
+  background-image: linear-gradient(to left, #6600ff 70%, #9500ff);
+  color: white;
+  border-radius: 15px 10px 10px 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.walkBox::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid hsla(0, 0%, 100%, 0.7);
+  left: 15px;
+  top: 14px;
+}
+
+.walkBox>span:first-of-type {
+  opacity: .7;
+  font-size: .7em;
+  transform: scale(.9);
+}
+
+.walkBox>span:last-of-type {
+  font-size: 1.5em;
+  font-family: fontB;
+}
+
+.write {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+  padding: 15px 0 10px 20px;
+  border-radius: 40px;
+  color: hsl(206, 6%, 79%);
+  position: relative;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type="submit"] {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: hsl(271, 36%, 24%);
+  position: absolute;
+  right: 7px;
+  top: 3px;
+}
+
+body>div>div {
+  padding: 20px 40px;
+}
+
+div>h2 {
+  text-align: center;
+  font-size: 2.5em;
+  color: hsl(271, 36%, 24%);
+}
+
+div>div>p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1em;
+  color: hsl(270, 7%, 64%)
+}
+
+@media (min-width: 376px) {
+  
+  body {
+    width: 1440px;
+  }
+  .bg {
+    width: 400px;
+    height: 90vh;
+    background-color: hsl(264, 100%, 61%);
+    border-radius: 0 0 380px 300px;
+    left: -100px;
+    top: 0;
+    z-index: -1;
+  }
+
+  body > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+  }
+
+  section {
+    width: 300px;
+    margin: 30px 200px;
+    padding: 15px;
+  }
+
+  body>div>div {
+    width: 450px;
+    padding: 20px 40px;
+    margin-left: -100px;
+  }
+
+  div>h2 {
+    text-align: left;
+    font-size: 2.5em;
+    color: hsl(271, 36%, 24%);
+  }
+
+  div>div>p {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.7em;
+    color: hsl(270, 7%, 64%)
+  }
+}

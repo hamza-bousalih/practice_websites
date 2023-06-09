@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../images/favicon-32x32.png">
+      <title>Sing-up</title>
+      <link rel="stylesheet"
+            href="log-in.css">
+      <style>
+        body {
+          padding: 20px;
+          height: 100vh;
+        }
+        body > div {
+          margin: 10px auto;
+          width: 450px;
+        }
+
+        input[type="submit"] {
+          width: 100%;
+          font-weight: bold;
+        }
+
+        @media (max-width: 375px) {
+          body > div {
+            width: 90%;
+            padding-bottom: 40px;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div>
+        <div>Sing-up</div>
+        <form action="#">
+          <div>
+            <div>
+              <input type="text"
+                      name="fn"
+                     id="firstname"
+                      required>
+              <label for="firstname">First name</label>
+            </div>
+            <div>
+              <input type="text"
+                      name="ln"
+                     id="lastname"
+                      required>
+              <label for="lastname">Last name</label>
+            </div>
+            <div>
+              <input type="text"
+                      name="username"
+                     id="usename"
+                      required>
+              <label for="usename">User Name</label>
+            </div>
+            <div>
+              <input type="text"
+                      name="Email"
+                     id="email"
+                      required>
+              <label for="email">your Email</label>
+            </div>
+            <div>
+              <input type="password"
+                      id="pass"
+                      maxlength="10"
+                      minlength="6"
+                      required>
+              <label for="pass">Password</label>
+            </div>
+          </div>
+          <input type="submit"
+                  value="Sing-up">
+        </form>
+        <div>
+          <div></div>
+          <div>or</div>
+          <a href="log-in.html">
+            <button>log in to exist account</button>
+          </a>
+        </div>
+      </div>
+    </body>
+  </html>

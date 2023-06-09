@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta name="author"
+          content="BOUSALIH Hamza">
+
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="images/favicon-32x32.png">
+
+    <title>Fylo landing page with two column layout</title>
+    <link rel="stylesheet"
+          href="for-mobile.css">
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      @font-face {
+        font-family: font1;
+        src: url(font/OpenSans-Medium.ttf);
+      }
+
+      @font-face {
+        font-family: font2;
+        src: url(font/Raleway-Medium.ttf);
+      }
+
+      body {
+        background-color: white;
+        font-family: font1;
+      }
+
+      /* padding for the elements that need it */
+
+      nav,
+      main> :first-child {
+        padding: 40px 16px;
+      }
+
+      /* styling the navigation */
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav>img {
+        width: 80px;
+      }
+
+      nav>div a {
+        text-decoration: none;
+        color: black;
+        font-family: font2;
+        font-weight: 400;
+        font-size: 14px;
+        margin-right: 10px;
+        opacity: .7;
+      }
+
+      nav>div a:hover {
+        color: blue;
+        opacity: 1;
+      }
+
+      /* styling the div one in main section */
+
+      main> :first-child {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      main> :first-child>div {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 0;
+      }
+
+      main> :first-child>div>h1 {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+
+
+      main> :first-child>div>p {
+        text-align: center;
+        font-weight: 400;
+        font-size: 1em;
+        transform: scale(.9);
+      }
+
+      main> :first-child>div>div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+      }
+
+      main> :first-child input,
+      main> :first-child button {
+        padding: 14px 20px 10px;
+        font-family: font2;
+        width: 300px;
+        border-radius: 5px;
+        font-size: 1.05em;
+      }
+
+      main> :first-child input {
+        font-weight: 400;
+        margin-bottom: 20px;
+        outline: 1px solid hsla(0, 0%, 0%, 0.705);
+        border: none;
+        background-color: hsl(240, 75%, 98%);
+      }
+
+      main> :first-child input:hover {
+        outline-color: hsl(291, 100%, 50%);
+      }
+
+      main> :first-child button {
+        font-family: font2;
+        color: white;
+        border: none;
+        background-color: hsl(224, 74%, 51%);
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      /* styling the second div in main section */
+
+      main> :nth-child(2) {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        background-image: url(images/bg-curve-mobile.svg),
+          linear-gradient(to bottom, #fff 40px, #F8F8FE 40px);
+        background-repeat: no-repeat;
+        padding: 60px 20px;
+        margin: 30px 0;
+      }
+
+      main> :nth-child(2)>img {
+        width: 300px;
+        margin-bottom: 40px;
+      }
+
+      main> :nth-child(2)>div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      main> :nth-child(2) h3 {
+        font-family: font2;
+        font-size: 1.05em;
+        margin-bottom: 20px;
+      }
+
+      main> :nth-child(2)>div>p {
+        opacity: .7;
+        margin-bottom: 20px;
+        font-size: .83em;
+        padding-right: 20px;
+      }
+
+      main> :nth-child(2)>div>a {
+        text-decoration: none;
+        width: fit-content;
+        color: hsl(170, 45%, 43%);
+        position: relative;
+        margin: 10px 0 30px;
+        padding-right: 20px;
+        opacity: .6;
+      }
+
+      main> :nth-child(2)>div>a::before {
+        content: url(images/icon-arrow.svg);
+        position: absolute;
+        right: 0;
+        top: 20%;
+      }
+
+      main> :nth-child(2)>div>a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 1.5px;
+        background-color: hsl(170, 45%, 43%);
+      }
+
+      main> :nth-child(2)>div>a:hover {
+        opacity: 1;
+      }
+
+      main> :nth-child(2) .card {
+        padding: 20px 20px 20px 30px;
+        background-color: white;
+        margin: 0 20px 30px;
+        position: relative;
+        box-shadow: 1px 1px 5px rgb(240, 238, 238);
+        border-radius: 5px;
+      }
+
+      main> :nth-child(2) .card::before {
+        content: url(images/icon-quotes.svg);
+      }
+
+      main> :nth-child(2) .card>p {
+        font-size: 10px;
+        line-height: 1.7em;
+        opacity: .7;
+        margin-bottom: 20px;
+      }
+
+      main> :nth-child(2) .card>div {
+        display: flex;
+      }
+
+      main> :nth-child(2) .card>div>img {
+        width: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      main> :nth-child(2) .card>div>div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      main> :nth-child(2) .card>div>div> :first-child {
+        font-weight: bolder;
+        font-size: 11px;
+        letter-spacing: 1.25px;
+      }
+
+      main> :nth-child(2) .card>div>div> :last-child {
+        font-size: 11px;
+        opacity: .5;
+        transform: scale(.8);
+        margin-left: -14px;
+      }
+
+      /* styling the last div in main section */
+
+      main> :last-child {
+        background-color: hsl(238, 22%, 44%);
+        padding: 50px 30px 80px;
+        color: white;
+      }
+
+      main> :last-child,
+      main> :last-child>div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      main> :last-child>div h3 {
+        text-align: center;
+        font-family: font2;
+        font-size: 1.2em;
+      }
+
+      main>:last-child>div p {
+        margin: 20px 10px;
+        text-align: center;
+        font-size: .85em;
+        opacity: .8;
+      }
+
+      main> :last-child>:last-child {
+        align-items: center;
+      }
+
+      main> :last-child>:last-child input,
+      main> :last-child>:last-child button {
+        padding: 10px 10px 5px;
+        font-family: font2;
+        width: 200px;
+        border-radius: 4px;
+        box-shadow: 1px 1px 4px hsl(238, 22%, 28%);
+      }
+
+      main> :last-child> :last-child input {
+        font-weight: 400;
+        margin-bottom: 15px;
+        outline: none;
+        border: none;
+        background-color: hsl(240, 75%, 98%);
+        font-size: .6em;
+      }
+
+      main> :last-child> :last-child input:is(:hover, :focus) {
+        outline: 1px solid hsl(291, 100%, 50%);
+        opacity: 1;
+      }
+
+      main> :last-child>:last-child button {
+        font-family: font2;
+        color: white;
+        border: none;
+        background-color: hsl(224, 74%, 51%);
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: .5em;
+        padding-bottom: 10px;
+      }
+
+      /* styling the footer */
+
+      footer {
+        background-color: hsl(243, 87%, 12%);
+        color: white;
+        padding: 60px 30px;
+        position: relative;
+      }
+
+      footer,
+      footer>div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      footer>img {
+        width: 150px;
+        margin-bottom: 40px;
+      }
+
+      footer>div:first-of-type,
+      footer>div:nth-of-type(2) {
+        position: relative;
+        padding-left: 30px;
+      }
+
+      footer>div:first-of-type:before {
+        content: url(images/icon-phone.svg);
+        position: absolute;
+        left: 0;
+      }
+
+      footer>div:nth-of-type(2):before {
+        content: url(images/icon-email.svg);
+        position: absolute;
+        left: 0;
+      }
+
+      footer>div:nth-of-type(3),
+      footer>div:last-of-type {
+        margin: 20px 0;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+        opacity: .7;
+        margin-bottom: 10px;
+      }
+
+      footer a:hover {
+        opacity: 1;
+        text-decoration: underline;
+      }
+
+      footer> :last-child {
+        position: absolute;
+        right: 30px;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+      }
+
+
+      footer> :last-child>div a {
+        padding: 20px 15px 10px;
+        border-radius: 50%;
+      }
+
+      footer> :last-child>div a:hover {
+        background-color: hsl(243, 79%, 19%);
+      }
+
+
+
+      /* design for desktop width: 1440px */
+
+      @media (min-width:376px) {
+        body {
+          width: 1440px;
+        }
+
+        /* styling the navigation */
+
+        nav {
+          padding: 30px 40px;
+        }
+
+        nav>img {
+          width: 150px;
+        }
+
+        nav>div a {
+          font-size: 1.8em;
+          margin-right: 40px;
+        }
+
+        /* styling the div one in main section */
+
+        main> :first-child {
+          display: flex;
+          flex-direction: row;
+          padding: 60px 100px 0;
+          margin: 0 auto;
+        }
+
+        main> :first-child>div {
+          width: 500px;
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          margin-right: 60px;
+          align-self: center;
+        }
+
+        main> :first-child>div>h1 {
+          text-align: left;
+          font-weight: 700;
+          font-size: 1.5em;
+          margin-bottom: 15px;
+        }
+
+
+        main> :first-child>div>p {
+          text-align: left;
+          font-weight: 700;
+          font-size: .95em;
+          transform: scale(1);
+          opacity: .5
+        }
+
+        main> :first-child>div>div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-top: 25px;
+        }
+
+        main> :first-child input,
+        main> :first-child button {
+          padding: 10px 20px 10px 15px;
+          border-radius: 5px;
+          font-size: .6em;
+        }
+
+        main> :first-child input {
+          margin-bottom: 0;
+          width: 250px;
+        }
+
+        main> :first-child button {
+          width: 150px;
+          margin-left: 15px;
+        }
+
+        main> :first-child>img {
+          width: 500px;
+        }
+
+        /* styling the second div in main section */
+
+        main> :nth-child(2) {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          background-image: url(images/bg-curve-desktop.svg),
+            linear-gradient(to bottom, #fff 40px, #F8F8FE 40px);
+          padding: 100px 60px;
+          margin: 50px 0;
+        }
+
+        main> :nth-child(2)>img {
+          width: 40%;
+          margin-bottom: 0;
+        }
+
+        main> :nth-child(2)>div {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 50%;
+        }
+
+        main> :nth-child(2) h3 {
+          font-size: 2em;
+          margin-bottom: 20px;
+        }
+
+        main> :nth-child(2)>div>p {
+          margin-bottom: 15px;
+          font-size: 1em;
+          width: 80%;
+          opacity: .8;
+          transform: scale(.9);
+          margin-left: -25px;
+        }
+
+        main> :nth-child(2)>div>a {
+          padding-right: 25px;
+          opacity: .7;
+          font-size: 1.5em;
+        }
+
+        main> :nth-child(2)>div>a::before {
+          content: url(images/icon-arrow.svg);
+          position: absolute;
+          right: 0;
+          top: 1px;
+          transform: scale(1.5);
+        }
+
+        main> :nth-child(2) .card {
+          width: 350px;
+          padding: 20px 20px 20px 25px;
+          margin: 0;
+          position: relative;
+          box-shadow: 2px 2px 5px rgb(182, 182, 182);
+          border-radius: 8px;
+        }
+
+        main> :nth-child(2) .card>p {
+          padding-right: 5px;
+          font-size: .9em;
+          line-height: 1.4em;
+          opacity: .7;
+          font-weight: 400;
+        }
+
+        main> :nth-child(2) .card>div>img {
+          width: 35px;
+        }
+
+        main> :nth-child(2) .card>div>div> :last-child {
+          opacity: .7;
+          font-weight: bold;
+        }
+
+        /* styling the last div in main section */
+
+        main> :last-child {
+          padding: 70px 40px 60px 60px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+        }
+
+        main> :last-child>div {
+          display: flex;
+          flex-direction: column;
+        }
+
+        main> :last-child>div h3 {
+          text-align: left;
+          font-size: 1.5em;
+        }
+
+        main>:last-child>div p {
+          margin: 020px 0;
+          text-align: left;
+          font-size: .8em;
+          width: 400px;
+        }
+
+        main> :last-child>:last-child {
+          align-items: flex-start;
+        }
+
+        main> :last-child>:last-child button {
+          width: 170px;
+        }
+
+        main> :last-child> :last-child input {
+          width: 400px;
+        }
+
+        /* styling the footer */
+
+        .logo {
+          grid-area: logo;
+        }
+
+        .phone {
+          grid-area: phone;
+        }
+
+        .email {
+          grid-area: email;
+        }
+
+        .link1 {
+          grid-area: link1;
+        }
+
+        .link2 {
+          grid-area: link2;
+        }
+
+        .social-media {
+          grid-area: social-media;
+        }
+
+        footer {
+          padding: 60px;
+          position: static;
+          display: grid;
+          grid-template-areas: "logo logo logo logo"
+            "phone link1 link2 social-media"
+            "email link1 link2 social-media";
+        }
+
+        .email {
+          margin-top: -50px;
+        }
+
+        footer>div {
+          display: flex;
+          flex-direction: column;
+        }
+
+        footer>img {
+          width: 150px;
+          margin-bottom: 30px;
+        }
+
+        footer>div:nth-of-type(3),
+        footer>div:last-of-type {
+          margin: 0;
+        }
+
+        footer> :last-child {
+          position: static;
+        }
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <nav>
+      <img src="images/logo.svg"
+            alt="logo">
+      <div>
+        <a href="#"
+            target="_blank">Features</a>
+        <a href="#"
+            target="_blank">Team</a>
+        <a href="#"
+            target="_blank">Sign In</a>
+      </div>
+    </nav>
+    <main>
+      <div>
+        <div>
+          <h1>All your files in one secure location, accessible anywhere.</h1>
+
+          <p>
+            Fylo stores your most important files in one secure location.
+            Access them wherever you need, share and collaborate with friends,
+            family, and co-workers.
+          </p>
+
+          <div>
+            <input type="text"
+                    placeholder="Enter your email...">
+
+            <a href="#"
+                target="_blank">
+              <button>Get Started</button>
+            </a>
+          </div>
+        </div>
+        <img src="images/illustration-1.svg"
+              alt="illustration-1">
+      </div>
+
+      <div>
+        <div>
+          <h3>Stay productive, wherever you are</h3>
+
+          <p>
+            Never let location be an issue when accessing your files. Fylo has you
+            covered for all of your file storage needs.
+          </p>
+
+          <p>
+            Securely share files and folders with friends, family and colleagues for
+            live collaboration. No email attachments required!
+          </p>
+
+          <a href="#"
+              target="_blank">
+            <span>See how Fylo works</span>
+          </a>
+
+          <div class="card">
+            <p>
+              Fylo has improved our team productivity by an order of magnitude. Since
+              making the switch our team has become a well-oiled collaboration machine.
+            </p>
+
+            <div>
+              <img src="images/avatar-testimonial.jpg"
+                    alt="avatar-testimonial">
+              <div>
+                <span>Kyle Burton</span>
+                <span>Founder & CEO, Huddle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="images/illustration-2.svg"
+              alt="illustration-2">
+      </div>
+
+      <div>
+        <div>
+          <h3>Get early access today</h3>
+
+          <p>
+            It only takes a minute to sign up and our free starter tier is extremely generous.
+            If you have any questions, our support team would be happy to help you.
+          </p>
+        </div>
+        <div>
+          <input type="text"
+                  placeholder="email@example.com">
+          <a href="#"
+              target="_blank">
+            <button>
+              <span>Get Started For Free</span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <img src="images/logo%20copy.svg"
+            alt="logo"
+            class="logo">
+      <div class="phone">
+        <a href="#"
+            target="_blank">Phone: +1-543-123-4567</a>
+      </div>
+      <div class="email">
+        <a href="#">example@fylo.com</a>
+      </div>
+
+      <div class="link link1">
+        <a href="#"
+            target="_blank">About Us</a>
+        <a href="#"
+            target="_blank">Jobs</a>
+        <a href="#"
+            target="_blank">Press</a>
+        <a href="#"
+            target="_blank">Blog</a>
+      </div>
+
+      <div class="link link2">
+        <a href="#"
+            target="_blank">Contact Us</a>
+        <a href="#"
+            target="_blank">Terms</a>
+        <a href="#"
+            target="_blank">Privacy</a>
+      </div>
+
+      <div class="social-media">
+        <div>
+          <a href="http://www.facebook.com"
+              target="_blank">
+            <img src="images/icon-facebook.svg"
+                  alt="facebook">
+          </a>
+        </div>
+        <div>
+          <a href="http://www.twitter.com"
+              target="_blank">
+            <img src="images/icon-twitter.svg"
+                  alt="twitter">
+          </a>
+        </div>
+        <div>
+          <a href="http://www.instagram.com"
+              target="_blank">
+            <img src="images/icon-instagram.svg"
+                  alt="instagram">
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
